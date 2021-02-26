@@ -7,6 +7,8 @@ class Api::ProductsController < ActionController::API
 
   def index
     result = GetProducts.call(params: params)
+    return (render json:{message: result.message}, 400) if context.failure?
+    
     user = {email: current_user.email } if current_user  
     render json: { products: result.products, pages: result.pages_count, user: user }
   end

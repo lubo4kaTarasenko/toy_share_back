@@ -11,6 +11,8 @@ class GetProducts
     end
 
     context.pages_count = (scp.count.to_f / 20).ceil
+  rescue StandardError
+    context.fail!(message: 'Something went wrong')
   end
 
   private
