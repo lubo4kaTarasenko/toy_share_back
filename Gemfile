@@ -26,7 +26,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem "interactor", "~> 3.0"
-
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'pry'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

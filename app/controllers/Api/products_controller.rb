@@ -1,14 +1,15 @@
 class Api::ProductsController < ActionController::API
   def create
-    json = params.require(:product).permit(:name, :description, :kind).to_h
-    json.merge!(user_id: current_user.id)
+    json = params.require(:product).permit(:name, :description, :kind, :category, :subcategory).to_h
+    binding.pry
+    #json.merge!(user_id: current_user.id)
     #Product.create(json)
   end
 
   def index
     result = GetProducts.call(params: params)
-    return (render json:{message: result.message}, 400) if context.failure?
-    
+    #return (render json:{message: result.message}, 400) if context.failure?
+
     user = {email: current_user.email } if current_user  
     render json: { products: result.products, pages: result.pages_count, user: user }
   end
