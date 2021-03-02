@@ -1,9 +1,18 @@
 class Api::ProductsController < ActionController::API
   def create
-    json = params.require(:product).permit(:name, :description, :kind, :category, :subcategory).to_h
-    binding.pry
-    #json.merge!(user_id: current_user.id)
-    #Product.create(json)
+    uploaded_picture = Cloudinary::Uploader.upload(params[:data].path)
+    
+    product = JSON.parse(params[:product])
+    product_new = Product.create!(
+      name: product['name'],
+      description: product['description'], 
+      kind: product[:kind],
+      user_id: 1,
+      category_id: 15,
+      subcategory_id: 78
+    )
+    product_new.images.create(url: uploaded_picture['url'])
+    render json: {message: 'success'}
   end
 
   def index
