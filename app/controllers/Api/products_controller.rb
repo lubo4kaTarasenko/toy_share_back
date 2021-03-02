@@ -1,7 +1,9 @@
 class Api::ProductsController < ActionController::API
   def create
-    uploaded_picture = Cloudinary::Uploader.upload(params[:data].path)
-    
+    #binding.pry
+    uploaded_pictures = []
+    params[:data].each{|k , v| uploaded_pictures << Cloudinary::Uploader.upload(v.path)}
+   
     product = JSON.parse(params[:product])
     product_new = Product.create!(
       name: product['name'],
@@ -11,7 +13,8 @@ class Api::ProductsController < ActionController::API
       category_id: 15,
       subcategory_id: 78
     )
-    product_new.images.create(url: uploaded_picture['url'])
+    uploaded_pictures.each { |picture| product_new.images.create(url: picture['url'])} 
+   
     render json: {message: 'success'}
   end
 
