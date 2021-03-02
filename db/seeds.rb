@@ -63,4 +63,4 @@ products = 1000.times.map do
       kind: KINDS.sample
     }
   )
-end
+endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

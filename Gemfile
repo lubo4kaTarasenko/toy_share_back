@@ -29,6 +29,7 @@ gem "interactor", "~> 3.0"
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'pry'
+gem 'activeadmin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

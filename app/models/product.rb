@@ -4,6 +4,11 @@ class Product < ApplicationRecord
   has_many :images
   belongs_to :user
 
+  validates :name, presence: true
+  validates :status, inclusion: { in: %w(unpublished, published)}
+
+  scope :published, -> {where(status: 'published')}
+
   def self.search(pattern)
     if pattern.blank?
       all

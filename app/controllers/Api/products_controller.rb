@@ -11,7 +11,8 @@ class Api::ProductsController < ActionController::API
       kind: product[:kind],
       user_id: 1,
       category_id: 15,
-      subcategory_id: 78
+      subcategory_id: 78,
+      status: 'unpublished'
     )
     uploaded_pictures.each { |picture| product_new.images.create(url: picture['url'])} 
    
