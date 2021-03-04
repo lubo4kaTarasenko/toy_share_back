@@ -1,20 +1,6 @@
 class Api::ProductsController < ActionController::API
   def create
-    #binding.pry
-    uploaded_pictures = []
-    params[:data].each{|k , v| uploaded_pictures << Cloudinary::Uploader.upload(v.path)}
-   
-    product = JSON.parse(params[:product])
-    product_new = Product.create!(
-      name: product['name'],
-      description: product['description'], 
-      kind: product[:kind],
-      user_id: 1,
-      category_id: 15,
-      subcategory_id: 78,
-      status: 'unpublished'
-    )
-    uploaded_pictures.each { |picture| product_new.images.create(url: picture['url'])} 
+    CreateProduct.call(params: params)
    
     render json: {message: 'success'}
   end

@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
-  validates :status, inclusion: { in: %w(unpublished, published)}
+  validates :status, inclusion: { in: %w(unpublished published)}
 
   scope :published, -> {where(status: 'published')}
 

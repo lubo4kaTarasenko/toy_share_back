@@ -30,6 +30,9 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'pry'
 gem 'activeadmin'
+gem 'google_drive'
+gem 'omniauth-google-oauth2'
+gem "omniauth", "~> 1.9.1"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
