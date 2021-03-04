@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post '/product', to: 'api/products#create'
   get '/products', to: 'api/products#index'
   get '/categories', to: 'api/categories#index'
+  get '/profile/products', to: 'api/profile#products'
 end
