@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/products', to: 'api/products#index'
   get '/categories', to: 'api/categories#index'
   get '/profile/products', to: 'api/profile#products'
-  patch 'users', to: 'api/users#update'
-  get 'user', to: 'api/users#show'
+  patch 'api/user', to: 'api/users#update'
+  get 'api/user', to: 'api/users#show'
 
 
   root = 'home#index'

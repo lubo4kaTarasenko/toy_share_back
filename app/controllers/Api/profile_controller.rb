@@ -4,7 +4,7 @@ class Api::ProfileController < ActionController::API
   end
 
   def products
-    products = Product.where(status: params[:status], kind: params[:kind].to_s.split(',') ).includes(
+    products = Product.where(status: params[:status], kind: params[:kind].to_s.split(','), user: current_user ).includes(
       :category, :subcategory, :images).map do |product|
       product.attributes.merge(
         category: product.category.name,
