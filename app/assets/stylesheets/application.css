@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ @media screen and (min-width: 600px) {
+  .auth{
+    width: 30%;
+  }
+}
+.auth{
+  margin-left: 30px;
+}
+.auth input {
+  margin-bottom: 20px;
+}

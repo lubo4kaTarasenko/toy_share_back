@@ -6,7 +6,9 @@ class GetProducts
     context.products = scp.page(context.params[:p]).per(20).map do |product|
       product.attributes.merge(
         category: product.category.name,
-        subcategory: product.subcategory.name
+        subcategory: product.subcategory.name,
+        image: product.images[0]&.url, 
+        user: product.user.email
       )
     end
 
@@ -19,7 +21,7 @@ class GetProducts
 
   def get_list
     params = context.params
-    scp = Product.search(params[:q]).includes(:category, :subcategory)
+    scp = Product.search(params[:q]).includes(:category, :subcategory, :images, :user)
 
     if params[:sc].present? && params[:sc] != 'undefined'
       scp = scp.where(subcategory_id: Subcategory.find_by(name: params[:sc]).id)

@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :status, inclusion: { in: %w(unpublished published)}
 
+  before_save :add_url_name
+
   scope :published, -> {where(status: 'published')}
 
   def self.search(pattern)
@@ -15,5 +17,11 @@ class Product < ApplicationRecord
     else
       where('name ILIKE ?', "%#{pattern}%")
     end
+  end
+
+  private
+
+  def add_url_name
+    self.url_name = name.downcase.gsub(' ', '-')
   end
 end

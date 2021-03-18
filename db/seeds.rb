@@ -52,15 +52,20 @@ SUBCATEGORIES_CHILDRENS.map do |sc|
   )
 end
 
-products = 1000.times.map do
+users = 10.times.map { User.create(email: Faker::Internet.email, password: '12345678') }
+products = 100.times.map do
   category = categories.sample
-  Product.create(
+  user = users.sample
+  Product.create!(
     {
       name: Faker::Commerce.product_name,
       category: category,
       subcategory: category.subcategories.to_a.sample,
       description: Faker::Markdown.emphasis,
-      kind: KINDS.sample
+      kind: KINDS.sample,
+      user: user,
+      status: 'published'
     }
   )
-endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+end 
+#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -20,7 +20,8 @@ class Api::ProductsController < ActionController::API
     render json: {
       product: product.attributes.merge(
         category: product.category.name,
-        subcategory: product.subcategory.name
+        subcategory: product.subcategory.name,
+        images: product.images.pluck(:url)
     )}
   end  
 end
