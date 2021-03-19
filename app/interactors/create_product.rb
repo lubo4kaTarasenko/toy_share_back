@@ -12,7 +12,7 @@ class CreateProduct
       name: product['name'],
       description: product['description'], 
       kind: product['kind'],
-      user_id: 1,
+      user: context.user,
       category: category,
       subcategory: subcategory,
       status: 'unpublished'

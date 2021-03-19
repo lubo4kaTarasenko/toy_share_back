@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/profile/products', to: 'api/profile#products'
   patch 'api/user', to: 'api/users#update'
   get 'api/user', to: 'api/users#show'
+  delete 'product', to: 'api/products#delete'
 
 
   root = 'home#index'
