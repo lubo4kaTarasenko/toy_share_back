@@ -24,4 +24,14 @@ class Api::UsersController < ActionController::API
     }
     render json: {user: user}
   end
+
+  def user_profile
+    user = User.find_by(email: params[:email])
+    user_params = {
+      name: user.name,
+      avatar: user.avatar,
+      email: user.email
+    }
+    render json: {user: user_params}
+  end
 end
