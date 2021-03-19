@@ -9,7 +9,8 @@ class Api::ProfileController < ActionController::API
       product.attributes.merge(
         category: product.category.name,
         subcategory: product.subcategory.name,
-        images: product.images
+        image: product.images[0]&.url,
+        user: current_user.email
       )
     end 
     render json: { products: products }

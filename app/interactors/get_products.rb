@@ -21,7 +21,7 @@ class GetProducts
 
   def get_list
     params = context.params
-    scp = Product.search(params[:q]).includes(:category, :subcategory, :images, :user)
+    scp = Product.where(status: 'published').search(params[:q]).includes(:category, :subcategory, :images, :user)
 
     if params[:sc].present? && params[:sc] != 'undefined'
       scp = scp.where(subcategory_id: Subcategory.find_by(name: params[:sc]).id)
