@@ -14,13 +14,16 @@ class Api::ProductsController < ActionController::API
 
   def show
     product = Product.find_by(url_name: params[:name])
-
+    comments_arr = product.comments.map { |c| { id: c.id, body: c.body, email: c.user.email } }
+ 
     render json: {
       product: product.attributes.merge(
         category: product.category.name,
         subcategory: product.subcategory.name,
         images: product.images.pluck(:url)
-    )}
+      ),  
+      comments: comments_arr
+    }
   end 
   
   def delete 

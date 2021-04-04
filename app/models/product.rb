@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :subcategory
-  has_many :images
   belongs_to :user
+  has_many :images
+  has_many :comments
 
   validates :name, presence: true
   validates :status, inclusion: { in: %w(unpublished published)}

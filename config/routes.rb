@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   delete 'product', to: 'api/products#delete'
   get 'api/user_profile', to: 'api/users#user_profile'
   get '/profile/user_products', to: 'api/profile#user_products'
+  post '/comments', to: 'api/comments#create'
+  delete '/comments', to: 'api/comments#destroy'
+  put '/comments', to: 'api/comments#update'
+
 
 
   root = 'home#index'

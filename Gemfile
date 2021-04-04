@@ -33,6 +33,7 @@ gem 'activeadmin'
 gem 'google_drive'
 gem 'omniauth-google-oauth2'
 gem "omniauth", "~> 1.9.1"
+gem 'mimemagic', '0.3.5', git: 'https://github.com/xandrck/mimemagic.git'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
