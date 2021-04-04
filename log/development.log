@@ -945,3 +945,1299 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8256613784779976385)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/product/intelligent-cotton-wallet" for ::1 at 2021-04-04 22:10:50 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"intelligent-cotton-wallet"}
+  Rendering html template
+  Rendered html template (Duration: 0.3ms | Allocations: 32)
+Completed 200 OK in 14ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 1810)
+
+
+Started GET "/product?name=intelligent-cotton-wallet" for ::1 at 2021-04-04 22:10:50 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"intelligent-cotton-wallet"}
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "intelligent-cotton-wallet"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 83ms (Views: 0.5ms | ActiveRecord: 29.1ms | Allocations: 24528)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:11:08 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 640)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 3892)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:11:10 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 174)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1044)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1863.7ms | Allocations: 185946)
+Completed 500 Internal Server Error in 1931ms (ActiveRecord: 14.2ms | Allocations: 193704)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1204.1ms | Allocations: 211757)
+Completed 500 Internal Server Error in 1206ms (ActiveRecord: 0.0ms | Allocations: 212269)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:12:00 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1032)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1326.8ms | Allocations: 7583)
+Completed 500 Internal Server Error in 1330ms (ActiveRecord: 0.0ms | Allocations: 8092)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:15:24 +0300
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.6ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 3157)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1243.8ms | Allocations: 27319)
+Completed 500 Internal Server Error in 1325ms (ActiveRecord: 16.1ms | Allocations: 36395)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/aboutUs" for ::1 at 2021-04-04 22:15:34 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"aboutUs"}
+  Rendering html template
+  Rendered html template (Duration: 0.3ms | Allocations: 28)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 546)
+
+
+Started GET "/aboutUs" for ::1 at 2021-04-04 22:15:38 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"aboutUs"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 309)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:15:45 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 174)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1044)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1273.7ms | Allocations: 7595)
+Completed 500 Internal Server Error in 1278ms (ActiveRecord: 0.0ms | Allocations: 8118)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:20:29 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1032)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1254.8ms | Allocations: 7579)
+Completed 500 Internal Server Error in 1257ms (ActiveRecord: 0.0ms | Allocations: 8098)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/luba/projects/toy_share_back/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:21:52 +0300
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3157)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 1900ms
+Built at: 04/04/2021 10:21:56 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 3540.6ms | Allocations: 26468)
+Completed 200 OK in 3645ms (Views: 3547.6ms | ActiveRecord: 54.3ms | Allocations: 35581)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-04-04 22:22:17 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 33ms (ActiveRecord: 5.0ms | Allocations: 5266)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 174)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5685)
+Completed 200 OK in 378ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 6730)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-04 22:22:21 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 166)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1822)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 6518)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.0ms | Allocations: 7899)
+
+
+Started POST "/users" for ::1 at 2021-04-04 22:22:40 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "a@a.com"], ["encrypted_password", "$2a$12$RcVIMUQcyDWZazGeb0j56O4gMPjEEoUTNAeWcJ27lXw7Sf8XWOfI6"], ["created_at", "2021-04-04 19:22:40.517256"], ["updated_at", "2021-04-04 19:22:40.517256"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 398ms (ActiveRecord: 6.8ms | Allocations: 8187)
+
+
+Started GET "/categories" for ::1 at 2021-04-04 22:22:40 +0300
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:22:40 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (3.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 52ms (Views: 0.9ms | ActiveRecord: 18.3ms | Allocations: 17638)
+
+
+  [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 112ms (Views: 4.1ms | ActiveRecord: 58.6ms | Allocations: 36455)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:22:49 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.3ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 55ms (Views: 0.7ms | ActiveRecord: 11.2ms | Allocations: 9043)
+
+
+Started GET "/product/practical-iron-coat" for ::1 at 2021-04-04 22:30:26 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"practical-iron-coat"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 28)
+Completed 200 OK in 2ms (Views: 1.4ms | Allocations: 602)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:30:27 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 12.1ms | Allocations: 6992)
+
+
+Started POST "/comments" for ::1 at 2021-04-04 22:31:13 +0300
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"product_id"=>97, "body"=>"i am comment", "comment"=>{"body"=>"i am comment", "product_id"=>97}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mComment Create (1.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at", "product_id", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "i am comment"], ["created_at", "2021-04-04 19:31:13.993844"], ["updated_at", "2021-04-04 19:31:13.993844"], ["product_id", 97], ["user_id", 11]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+No template found for Api::CommentsController#create, rendering head :no_content
+Completed 204 No Content in 29ms (ActiveRecord: 11.1ms | Allocations: 10413)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:31:14 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 5.6ms | Allocations: 4686)
+
+
+Started POST "/comments" for ::1 at 2021-04-04 22:31:35 +0300
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"product_id"=>97, "body"=>"i am one more comment", "comment"=>{"body"=>"i am one more comment", "product_id"=>97}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mProduct Load (4.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mComment Create (1.9ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at", "product_id", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "i am one more comment"], ["created_at", "2021-04-04 19:31:35.647335"], ["updated_at", "2021-04-04 19:31:35.647335"], ["product_id", 97], ["user_id", 11]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+No template found for Api::CommentsController#create, rendering head :no_content
+Completed 204 No Content in 48ms (ActiveRecord: 23.5ms | Allocations: 5387)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:31:35 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.9ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 5238)
+
+
+Started GET "/product/practical-iron-coat" for ::1 at 2021-04-04 22:41:25 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"practical-iron-coat"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 375)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:41:25 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 12.7ms | Allocations: 9117)
+
+
+Started GET "/product/practical-iron-coat" for ::1 at 2021-04-04 22:43:45 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"practical-iron-coat"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 371)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:43:45 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.9ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 4.7ms | Allocations: 5236)
+
+
+Started PUT "/comments" for ::1 at 2021-04-04 22:44:34 +0300
+Processing by Api::CommentsController#update as JSON
+  Parameters: {"id"=>1, "body"=>"i am comment editable", "comment"=>{"id"=>1, "body"=>"i am comment editable"}}
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:10:in `update'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+  [1m[36mComment Update (1.0ms)[0m  [1m[33mUPDATE "comments" SET "body" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["body", "i am comment editable"], ["updated_at", "2021-04-04 19:44:34.854282"], ["id", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/comments_controller.rb:11:in `update'
+No template found for Api::CommentsController#update, rendering head :no_content
+Completed 204 No Content in 32ms (ActiveRecord: 15.3ms | Allocations: 7333)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:44:34 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 5526)
+
+
+Started GET "/product/practical-iron-coat" for ::1 at 2021-04-04 22:48:38 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"practical-iron-coat"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 32)
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 1881)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:48:38 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 95ms (Views: 0.5ms | ActiveRecord: 33.5ms | Allocations: 35549)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 22:48:43 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 22:48:43 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 11]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3840)
+
+
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 16.1ms | Allocations: 11259)
+
+
+Started GET "/profile/products?kind=%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=published" for ::1 at 2021-04-04 22:48:48 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"обміняю", "status"=>"published"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "обміняю"], ["user_id", 11]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 1907)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E,%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=unpublished" for ::1 at 2021-04-04 22:48:49 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую,обміняю", "status"=>"unpublished"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" IN ($2, $3) AND "products"."user_id" = $4[0m  [["status", "unpublished"], [nil, "подарую"], [nil, "обміняю"], ["user_id", 11]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 1910)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-04-04 22:49:08 +0300
+Processing by Devise::SessionsController#destroy as */*
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Can't verify CSRF token authenticity.
+Completed 200 OK in 40ms (ActiveRecord: 2.8ms | Allocations: 5431)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:49:08 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:49:08 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  [1m[36mSubcategory Load (1.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 18ms (Views: 0.6ms | ActiveRecord: 3.7ms | Allocations: 6559)
+
+
+  [1m[36mSubcategory Load (4.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 41ms (Views: 2.3ms | ActiveRecord: 13.1ms | Allocations: 17702)
+
+
+Started GET "/product?name=intelligent-cotton-wallet" for ::1 at 2021-04-04 22:49:12 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"intelligent-cotton-wallet"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "intelligent-cotton-wallet"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 3953)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:49:14 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:49:14 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (1.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 2.4ms | Allocations: 4762)
+
+
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (2.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 46ms (Views: 2.5ms | ActiveRecord: 13.7ms | Allocations: 15295)
+
+
+Started GET "/product?name=awesome-iron-lamp" for ::1 at 2021-04-04 22:49:16 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"awesome-iron-lamp"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "awesome-iron-lamp"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 99]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 99]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 4.0ms | Allocations: 3890)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:49:18 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:49:18 +0300
+Processing by Api::ProductsController#index as */*
+Processing by Api::CategoriesController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 4995)
+
+
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 43ms (Views: 3.0ms | ActiveRecord: 9.5ms | Allocations: 15519)
+
+
+Started GET "/product?name=ergonomic-marble-car" for ::1 at 2021-04-04 22:49:20 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"ergonomic-marble-car"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "ergonomic-marble-car"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 98]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 98]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 5.3ms | Allocations: 3890)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:49:22 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:49:22 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 3.7ms | Allocations: 6048)
+
+
+  [1m[36mImage Load (1.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 37ms (Views: 2.1ms | ActiveRecord: 10.2ms | Allocations: 14693)
+
+
+Started GET "/product?name=practical-iron-coat" for ::1 at 2021-04-04 22:49:23 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"practical-iron-coat"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "practical-iron-coat"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 97]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 4.7ms | Allocations: 5226)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:49:35 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:49:35 +0300
+Processing by Api::ProductsController#index as */*
+Processing by Api::CategoriesController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 5841)
+
+
+  [1m[36mSubcategory Load (3.3ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 34ms (Views: 2.6ms | ActiveRecord: 10.5ms | Allocations: 15450)
+
+
+Started GET "/product?name=awesome-iron-lamp" for ::1 at 2021-04-04 22:49:37 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"awesome-iron-lamp"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "awesome-iron-lamp"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 99]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 99]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 6.4ms | Allocations: 3890)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:49:50 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 639)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3135)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 472ms
+Built at: 04/04/2021 10:49:51 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1485.3ms | Allocations: 26362)
+Completed 200 OK in 1502ms (Views: 1489.0ms | ActiveRecord: 0.0ms | Allocations: 31448)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:49:54 +0300
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:49:54 +0300
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:50:03 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 174)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 5727)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 6322)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:50:07 +0300
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:50:07 +0300
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:50:44 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 43.3ms | Allocations: 25264)
+Completed 200 OK in 73ms (Views: 47.7ms | ActiveRecord: 6.4ms | Allocations: 34433)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:50:46 +0300
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:50:46 +0300
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:51:52 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 25226)
+Completed 200 OK in 58ms (Views: 37.8ms | ActiveRecord: 4.6ms | Allocations: 34395)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-04 22:51:53 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 174)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 5727)
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 6335)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:51:55 +0300
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-04 22:51:55 +0300
+Started GET "/users/auth/google_oauth2/callback?state=3a9b401f4ec6950deb1d06ab5561c519a1e51a1f11c22609&code=4%2F0AY0e-g7NqT9i-EJCNjVeQexhsWrMGcvRv_gsIQvkX5U1Pfn6kZzAJBdGKTxGiFY0Q4u99g&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-04-04 22:51:59 +0300
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"3a9b401f4ec6950deb1d06ab5561c519a1e51a1f11c22609", "code"=>"4/0AY0e-g7NqT9i-EJCNjVeQexhsWrMGcvRv_gsIQvkX5U1Pfn6kZzAJBdGKTxGiFY0Q4u99g", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "lubo4ka.boiko@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13:in `from_omniauth'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:16:in `from_omniauth'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lubo4ka.boiko@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `from_omniauth'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lubo4ka.boiko@gmail.com"], ["encrypted_password", "$2a$12$lPY0ti7dQqNHVxvQyquGqeZfMff8p0K/8ZEiL2IHydMiU8xYKTGZK"], ["created_at", "2021-04-04 19:52:00.572584"], ["updated_at", "2021-04-04 19:52:00.572584"], ["name", "Liubov Boiko"]]
+  ↳ app/models/user.rb:16:in `from_omniauth'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:16:in `from_omniauth'
+Redirected to http://localhost:3001/
+Completed 302 Found in 245ms (ActiveRecord: 10.3ms | Allocations: 6204)
+
+
+Started GET "/categories" for ::1 at 2021-04-04 22:52:00 +0300
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:52:00 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (1.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 9.4ms | Allocations: 17241)
+
+
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 67ms (Views: 2.2ms | ActiveRecord: 33.7ms | Allocations: 36435)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 22:52:09 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 22:52:09 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2222)
+
+
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 3412)
+
+
+Started GET "/profile/products?kind=%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=published" for ::1 at 2021-04-04 22:52:11 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"обміняю", "status"=>"published"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 1920)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E,%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=unpublished" for ::1 at 2021-04-04 22:52:13 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую,обміняю", "status"=>"unpublished"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (3.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" IN ($2, $3) AND "products"."user_id" = $4[0m  [["status", "unpublished"], [nil, "подарую"], [nil, "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 5.6ms | Allocations: 1912)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 22:52:15 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 1901)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 22:56:12 +0300
+Started GET "/categories" for ::1 at 2021-04-04 22:56:12 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (1.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 4.3ms | Allocations: 5587)
+
+
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 39ms (Views: 2.2ms | ActiveRecord: 12.0ms | Allocations: 18163)
+
+
+Started GET "/aboutUs" for ::1 at 2021-04-04 23:02:28 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"aboutUs"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 598)
+
+
+Started GET "/aboutUs" for ::1 at 2021-04-04 23:02:31 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"aboutUs"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 2ms (Views: 1.0ms | Allocations: 372)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 23:02:33 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 23:02:33 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 12.5ms | Allocations: 8911)
+
+
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 12.9ms | Allocations: 9965)
+
+
+Started GET "/profile" for ::1 at 2021-04-04 23:05:25 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 23:05:26 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 23:05:26 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1997)
+
+
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 4.6ms | Allocations: 3844)
+
+
+Started GET "/profile" for ::1 at 2021-04-04 23:06:38 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 23:06:38 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 23:06:38 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1997)
+
+
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 3835)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 23:06:51 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 23:06:51 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 2.7ms | Allocations: 2172)
+
+
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 4.3ms | Allocations: 3409)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 23:06:53 +0300
+Started GET "/categories" for ::1 at 2021-04-04 23:06:53 +0300
+Processing by Api::ProductsController#index as */*
+Processing by Api::CategoriesController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mSubcategory Load (2.3ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 5.3ms | Allocations: 4813)
+
+
+  [1m[36mCategory Load (2.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (2.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 36ms (Views: 2.2ms | ActiveRecord: 12.0ms | Allocations: 15676)
+
+
+Started GET "/home" for ::1 at 2021-04-04 23:11:02 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"home"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 369)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 23:11:02 +0300
+Started GET "/categories" for ::1 at 2021-04-04 23:11:02 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (1.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  [1m[36mProduct Load (3.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 3.4ms | Allocations: 4783)
+
+
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (4.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 45ms (Views: 2.8ms | ActiveRecord: 15.0ms | Allocations: 14748)
+
+
+Started GET "/aboutUs" for ::1 at 2021-04-04 23:11:23 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"aboutUs"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 370)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-04 23:11:31 +0300
+Started GET "/categories" for ::1 at 2021-04-04 23:11:31 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (3.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mSubcategory Load (1.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 5.2ms | Allocations: 5333)
+
+
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 2], [nil, 5], [nil, 1], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (1.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [[nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 11], [nil, 37], [nil, 36], [nil, 20], [nil, 32], [nil, 34], [nil, 9], [nil, 14]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89], [nil, 88], [nil, 87], [nil, 86], [nil, 85], [nil, 84], [nil, 83], [nil, 82], [nil, 81]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2], [nil, 9]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 38ms (Views: 2.0ms | ActiveRecord: 12.9ms | Allocations: 18116)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-04 23:11:33 +0300
+Started GET "/api/user" for ::1 at 2021-04-04 23:11:33 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1997)
+
+
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 5.1ms | Allocations: 3835)
+
+
