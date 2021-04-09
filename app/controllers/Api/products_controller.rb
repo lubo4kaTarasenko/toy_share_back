@@ -36,5 +36,6 @@ class Api::ProductsController < ActionController::API
   def wanna_thing
     product = Product.find(params[:id])
     UserMailer.with(user_email: current_user.email, product: product).proposal_email.deliver_now
+    render json: {success: true}
   end
 end

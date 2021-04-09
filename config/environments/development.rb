@@ -42,14 +42,14 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'example.com',
-    user_name: 'toyshare2103@gmail.com',
-    password: ENV['MAILER_SECRET'],
-    authentication: 'plain',
-    enable_starttls_auto: true
+    domain:         'localhost:3000',
+    address:        "smtp.sendgrid.net",
+    port:            587,
+    authentication: :plain,
+    user_name:      'apikey',
+    password:       ENV['SENDGRID_KEY']
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
