@@ -20,7 +20,8 @@ class Api::ProductsController < ActionController::API
       product: product.attributes.merge(
         category: product.category.name,
         subcategory: product.subcategory.name,
-        images: product.images.pluck(:url)
+        images: product.images.pluck(:url),
+        user: product.user.email
       ),  
       comments: comments_arr
     }
@@ -30,5 +31,10 @@ class Api::ProductsController < ActionController::API
     product = Product.find(params[:id])
     product.delete
     render json: {success: true}
+  end
+
+  def wanna_thing
+    product = Product.find(params[:id])
+    UserMailer.with(user_email: current_user.email, product: product).proposal_email.deliver_now
   end
 end
