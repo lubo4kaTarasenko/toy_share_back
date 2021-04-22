@@ -38,4 +38,11 @@ class Api::ProductsController < ActionController::API
     UserMailer.with(user_email: current_user.email, product: product).proposal_email.deliver_now
     render json: {success: true}
   end
+
+  def thing_to_change
+    product = Product.find(params[:id])
+    product_change = Product.find(params[:change_id])
+    UserMailer.with(user_email: current_user.email, product: product, product_change: product_change).proposal_email.deliver_now
+    render json: {success: true}
+  end
 end

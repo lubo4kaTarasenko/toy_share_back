@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   delete '/comments', to: 'api/comments#destroy'
   put '/comments', to: 'api/comments#update'
   get 'product/wanna_thing', to: 'api/products#wanna_thing'
+  get '/product/thing_to_change', to: 'api/products#thing_to_change'
 
 
 
