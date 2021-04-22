@@ -10037,3 +10037,672 @@ Processing by Api::ProfileController#products as */*
 Completed 200 OK in 43ms (Views: 1.3ms | ActiveRecord: 13.1ms | Allocations: 4877)
 
 
+Started GET "/product/intelligent-cotton-wallet" for ::1 at 2021-04-22 21:50:42 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"intelligent-cotton-wallet"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 0.9ms | Allocations: 505)
+
+
+Started GET "/product?name=intelligent-cotton-wallet" for ::1 at 2021-04-22 21:50:42 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"intelligent-cotton-wallet"}
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "intelligent-cotton-wallet"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (2.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:24:in `show'
+Completed 200 OK in 136ms (Views: 0.5ms | ActiveRecord: 30.5ms | Allocations: 32368)
+
+
+Started GET "/profile/products?kind=%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=published" for ::1 at 2021-04-22 21:50:44 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"обміняю", "status"=>"published"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 106], [nil, 107]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 37ms (Views: 0.6ms | ActiveRecord: 10.0ms | Allocations: 4931)
+
+
+Started GET "/product/intelligent-cotton-wallet" for ::1 at 2021-04-22 21:55:24 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Unforgiven"=>"product", "Two"=>"intelligent-cotton-wallet"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 370)
+
+
+Started GET "/product?name=intelligent-cotton-wallet" for ::1 at 2021-04-22 21:55:24 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"intelligent-cotton-wallet"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "intelligent-cotton-wallet"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (0.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:24:in `show'
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 4.6ms | Allocations: 4627)
+
+
+Started GET "/profile/products?kind=%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=published" for ::1 at 2021-04-22 21:55:26 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"обміняю", "status"=>"published"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 106], [nil, 107]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 31ms (Views: 0.5ms | ActiveRecord: 10.7ms | Allocations: 4877)
+
+
+Started GET "/product/thing_to_change?id=100&change_id=106" for ::1 at 2021-04-22 21:55:27 +0300
+Processing by Api::ProductsController#thing_to_change as */*
+  Parameters: {"id"=>"100", "change_id"=>"106"}
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:43:in `thing_to_change'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:44:in `thing_to_change'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:45:in `thing_to_change'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:6:in `proposal_email'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/proposal_email.erb within layouts/mailer
+  Rendered user_mailer/proposal_email.erb within layouts/mailer (Duration: 0.9ms | Allocations: 317)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.9ms | Allocations: 492)
+UserMailer#proposal_email: processed outbound mail in 8.4ms
+Delivered mail 6081c69f56dd5_6b195ed858455@luba-Latitude-5411.mail (1452.9ms)
+Date: Thu, 22 Apr 2021 21:55:27 +0300
+From: lubo4ka.boiko@gmail.com
+To: josue@stehr.com
+Message-ID: <6081c69f56dd5_6b195ed858455@luba-Latitude-5411.mail>
+Subject: =?UTF-8?Q?=D0=9F=D1=80=D0=B8=D0=B2=D1=96=D1=82,?=
+ =?UTF-8?Q?_=D1=85=D1=82=D0=BE=D1=81=D1=8C_=D1=85=D0=BE=D1=87=D0=B5?=
+ =?UTF-8?Q?_=D0=BE=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8?=
+ =?UTF-8?Q?_=D0=92=D0=B0=D1=88=D1=83_=D1=80=D1=96=D1=87?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <head>=0D
+=0D
+  <meta charset=3D"utf-8">=0D
+  <meta http-equiv=3D"x-ua-compatible" content=3D"ie=3Dedge">=0D
+  <title>Password Reset</title>=0D
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">=0D
+  <style type=3D"text/css">=0D
+  /**=0D
+   * Google webfonts. Recommended to include the .woff version for cross-=
+client compatibility.=0D
+   */=0D
+  @media screen {=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 400;=0D
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular=
+'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2=
+zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');=0D
+    }=0D
+=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 700;=0D
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), ur=
+l(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc=
+6VGVFSmCnC_l7QZG60.woff) format('woff');=0D
+    }=0D
+  }=0D
+=0D
+  /**=0D
+   * Avoid browser level font resizing.=0D
+   * 1. Windows Mobile=0D
+   * 2. iOS / OSX=0D
+   */=0D
+  body,=0D
+  table,=0D
+  td,=0D
+  a {=0D
+    -ms-text-size-adjust: 100%; /* 1 */=0D
+    -webkit-text-size-adjust: 100%; /* 2 */=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove extra space added to tables and cells in Outlook.=0D
+   */=0D
+  table,=0D
+  td {=0D
+    mso-table-rspace: 0pt;=0D
+    mso-table-lspace: 0pt;=0D
+  }=0D
+=0D
+  /**=0D
+   * Better fluid images in Internet Explorer.=0D
+   */=0D
+  img {=0D
+    -ms-interpolation-mode: bicubic;=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove blue links for iOS devices.=0D
+   */=0D
+  a[x-apple-data-detectors] {=0D
+    font-family: inherit !important;=0D
+    font-size: inherit !important;=0D
+    font-weight: inherit !important;=0D
+    line-height: inherit !important;=0D
+    color: inherit !important;=0D
+    text-decoration: none !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Fix centering issues in Android 4.4.=0D
+   */=0D
+  div[style*=3D"margin: 16px 0;"] {=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  body {=0D
+    width: 100% !important;=0D
+    height: 100% !important;=0D
+    padding: 0 !important;=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Collapse table borders to avoid space between cells.=0D
+   */=0D
+  table {=0D
+    border-collapse: collapse !important;=0D
+  }=0D
+=0D
+  a {=0D
+    color: #1a82e2;=0D
+  }=0D
+=0D
+  img {=0D
+    height: auto;=0D
+    line-height: 100%;=0D
+    text-decoration: none;=0D
+    border: 0;=0D
+    outline: none;=0D
+  }=0D
+  </style>=0D
+=0D
+</head>=0D
+<body style=3D"background-color: #e9ecef;">=0D
+  <div class=3D"preheader" style=3D"display: none; max-width: 0; max-heig=
+ht: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; o=
+pacity: 0;">=0D
+    A preheader is the short summary text that follows the subject line w=
+hen an email is viewed in the inbox.=0D
+  </div>=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=
+=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" valign=3D"top" style=3D"padding: 36px 24=
+px;">=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 36px=
+ 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; bo=
+rder-top: 3px solid #d4dadf;">=0D
+              <h1 style=3D"margin: 0; font-size: 32px; font-weight: 700; =
+letter-spacing: -1px; line-height: 48px;">=D0=A5=D0=BE=D1=87=D1=83 =D0=BE=
+=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8 =D0=92=D0=B0=D1=88=D1=83 =D1=80=
+=D1=96=D1=87</h1>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px;">=0D
+              <p style=3D"margin: 0;">=D0=9D=D0=B0=D1=82=D0=B8=D1=81=D0=BD=
+=D1=96=D1=82=D1=8C =D0=BD=D0=B0 =D0=BA=D0=BD=D0=BE=D0=BF=D0=BA=D1=83 =D0=BD=
+=D0=B8=D0=B6=D1=87=D0=B5, =D1=89=D0=BE=D0=B1 =D0=BF=D0=B5=D1=80=D0=B5=D0=B9=
+=D1=82=D0=B8 =D0=B2 =D1=81=D0=B8=D1=81=D1=82=D0=B5=D0=BC=D1=83</p>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff">=0D
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%">=0D
+                <tr>=0D
+                  <td align=3D"center" bgcolor=3D"#ffffff" style=3D"paddi=
+ng: 12px;">=0D
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">=0D
+                      <tr>=0D
+                        <td align=3D"center" bgcolor=3D"#1a82e2" style=3D=
+"border-radius: 6px;">=0D
+                          <a href=3D"https://sendgrid.com" target=3D"_bla=
+nk" style=3D"display: inline-block; padding: 16px 36px; font-family: 'Sou=
+rce Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #fff=
+fff; text-decoration: none; border-radius: 6px;">ToyShare</a>=0D
+                        </td>=0D
+                      </tr>=0D
+                    </table>=0D
+                  </td>=0D
+                </tr>=0D
+              </table>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">=0D
+              <p style=3D"margin: 0;">=D0=93=D0=B0=D1=80=D0=BD=D0=BE=D0=B3=
+=D0=BE =D0=BD=D0=B0=D1=81=D1=82=D1=80=D0=BE=D1=8E, <br>ToyShare</p>=0D
+            </td>=0D
+          </tr>    =0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 24px;">=0D=
+
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;">=D0=92=D0=B8 =D0=BE=D1=82=D1=80=D0=B8=
+=D0=BC=D0=B0=D0=BB=D0=B8 =D1=86=D1=8C=D0=BE=D0=B3=D0=BE =D0=BB=D0=B8=D1=81=
+=D1=82=D0=B0, =D0=B1=D0=BE =D0=B7=D0=B0=D1=80=D0=B5=D1=94=D1=81=D1=82=D1=80=
+=D1=83=D0=B2=D0=B0=D0=BB=D0=B8=D1=81=D1=8F =D0=B2 =D1=81=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D1=96 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare =D1=96 =D0=B2=D0=B8=D0=BA=D0=BB=D0=B0=D0=
+=BB=D0=B8 =D1=81=D0=B2=D0=BE=D1=97 =D1=80=D0=B5=D1=87=D1=96, =D1=8F=D0=BA=
+=D0=B8=D0=BC=D0=B8 =D1=85=D0=BE=D1=87=D0=B5=D1=82=D0=B5 =D0=BF=D0=BE=D0=B4=
+=D1=96=D0=BB=D0=B8=D1=82=D0=B8=D1=81=D1=8F =D0=B7 =D1=96=D0=BD=D1=88=D0=B8=
+=D0=BC=D0=B8</p>=0D
+            </td>=0D
+          </tr>=0D
+=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;"> =C2=A9 2019 =D0=A1=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D0=B0 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare.</p>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+  </table>=0D
+</body>=0D
+</html>=0D
+=0D
+  </body>=0D
+</html>=0D
+
+Completed 200 OK in 1510ms (Views: 0.5ms | ActiveRecord: 4.3ms | Allocations: 21595)
+
+
+Started GET "/product/thing_to_change?id=100&change_id=107" for ::1 at 2021-04-22 21:55:28 +0300
+Processing by Api::ProductsController#thing_to_change as */*
+  Parameters: {"id"=>"100", "change_id"=>"107"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:43:in `thing_to_change'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:44:in `thing_to_change'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:45:in `thing_to_change'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:6:in `proposal_email'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/proposal_email.erb within layouts/mailer
+  Rendered user_mailer/proposal_email.erb within layouts/mailer (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.3ms | Allocations: 108)
+UserMailer#proposal_email: processed outbound mail in 4.2ms
+Delivered mail 6081c6a0d873e_6b195ed85855@luba-Latitude-5411.mail (937.4ms)
+Date: Thu, 22 Apr 2021 21:55:28 +0300
+From: lubo4ka.boiko@gmail.com
+To: josue@stehr.com
+Message-ID: <6081c6a0d873e_6b195ed85855@luba-Latitude-5411.mail>
+Subject: =?UTF-8?Q?=D0=9F=D1=80=D0=B8=D0=B2=D1=96=D1=82,?=
+ =?UTF-8?Q?_=D1=85=D1=82=D0=BE=D1=81=D1=8C_=D1=85=D0=BE=D1=87=D0=B5?=
+ =?UTF-8?Q?_=D0=BE=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8?=
+ =?UTF-8?Q?_=D0=92=D0=B0=D1=88=D1=83_=D1=80=D1=96=D1=87?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <head>=0D
+=0D
+  <meta charset=3D"utf-8">=0D
+  <meta http-equiv=3D"x-ua-compatible" content=3D"ie=3Dedge">=0D
+  <title>Password Reset</title>=0D
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">=0D
+  <style type=3D"text/css">=0D
+  /**=0D
+   * Google webfonts. Recommended to include the .woff version for cross-=
+client compatibility.=0D
+   */=0D
+  @media screen {=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 400;=0D
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular=
+'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2=
+zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');=0D
+    }=0D
+=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 700;=0D
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), ur=
+l(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc=
+6VGVFSmCnC_l7QZG60.woff) format('woff');=0D
+    }=0D
+  }=0D
+=0D
+  /**=0D
+   * Avoid browser level font resizing.=0D
+   * 1. Windows Mobile=0D
+   * 2. iOS / OSX=0D
+   */=0D
+  body,=0D
+  table,=0D
+  td,=0D
+  a {=0D
+    -ms-text-size-adjust: 100%; /* 1 */=0D
+    -webkit-text-size-adjust: 100%; /* 2 */=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove extra space added to tables and cells in Outlook.=0D
+   */=0D
+  table,=0D
+  td {=0D
+    mso-table-rspace: 0pt;=0D
+    mso-table-lspace: 0pt;=0D
+  }=0D
+=0D
+  /**=0D
+   * Better fluid images in Internet Explorer.=0D
+   */=0D
+  img {=0D
+    -ms-interpolation-mode: bicubic;=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove blue links for iOS devices.=0D
+   */=0D
+  a[x-apple-data-detectors] {=0D
+    font-family: inherit !important;=0D
+    font-size: inherit !important;=0D
+    font-weight: inherit !important;=0D
+    line-height: inherit !important;=0D
+    color: inherit !important;=0D
+    text-decoration: none !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Fix centering issues in Android 4.4.=0D
+   */=0D
+  div[style*=3D"margin: 16px 0;"] {=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  body {=0D
+    width: 100% !important;=0D
+    height: 100% !important;=0D
+    padding: 0 !important;=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Collapse table borders to avoid space between cells.=0D
+   */=0D
+  table {=0D
+    border-collapse: collapse !important;=0D
+  }=0D
+=0D
+  a {=0D
+    color: #1a82e2;=0D
+  }=0D
+=0D
+  img {=0D
+    height: auto;=0D
+    line-height: 100%;=0D
+    text-decoration: none;=0D
+    border: 0;=0D
+    outline: none;=0D
+  }=0D
+  </style>=0D
+=0D
+</head>=0D
+<body style=3D"background-color: #e9ecef;">=0D
+  <div class=3D"preheader" style=3D"display: none; max-width: 0; max-heig=
+ht: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; o=
+pacity: 0;">=0D
+    A preheader is the short summary text that follows the subject line w=
+hen an email is viewed in the inbox.=0D
+  </div>=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=
+=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" valign=3D"top" style=3D"padding: 36px 24=
+px;">=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 36px=
+ 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; bo=
+rder-top: 3px solid #d4dadf;">=0D
+              <h1 style=3D"margin: 0; font-size: 32px; font-weight: 700; =
+letter-spacing: -1px; line-height: 48px;">=D0=A5=D0=BE=D1=87=D1=83 =D0=BE=
+=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8 =D0=92=D0=B0=D1=88=D1=83 =D1=80=
+=D1=96=D1=87</h1>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px;">=0D
+              <p style=3D"margin: 0;">=D0=9D=D0=B0=D1=82=D0=B8=D1=81=D0=BD=
+=D1=96=D1=82=D1=8C =D0=BD=D0=B0 =D0=BA=D0=BD=D0=BE=D0=BF=D0=BA=D1=83 =D0=BD=
+=D0=B8=D0=B6=D1=87=D0=B5, =D1=89=D0=BE=D0=B1 =D0=BF=D0=B5=D1=80=D0=B5=D0=B9=
+=D1=82=D0=B8 =D0=B2 =D1=81=D0=B8=D1=81=D1=82=D0=B5=D0=BC=D1=83</p>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff">=0D
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%">=0D
+                <tr>=0D
+                  <td align=3D"center" bgcolor=3D"#ffffff" style=3D"paddi=
+ng: 12px;">=0D
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">=0D
+                      <tr>=0D
+                        <td align=3D"center" bgcolor=3D"#1a82e2" style=3D=
+"border-radius: 6px;">=0D
+                          <a href=3D"https://sendgrid.com" target=3D"_bla=
+nk" style=3D"display: inline-block; padding: 16px 36px; font-family: 'Sou=
+rce Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #fff=
+fff; text-decoration: none; border-radius: 6px;">ToyShare</a>=0D
+                        </td>=0D
+                      </tr>=0D
+                    </table>=0D
+                  </td>=0D
+                </tr>=0D
+              </table>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">=0D
+              <p style=3D"margin: 0;">=D0=93=D0=B0=D1=80=D0=BD=D0=BE=D0=B3=
+=D0=BE =D0=BD=D0=B0=D1=81=D1=82=D1=80=D0=BE=D1=8E, <br>ToyShare</p>=0D
+            </td>=0D
+          </tr>    =0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 24px;">=0D=
+
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;">=D0=92=D0=B8 =D0=BE=D1=82=D1=80=D0=B8=
+=D0=BC=D0=B0=D0=BB=D0=B8 =D1=86=D1=8C=D0=BE=D0=B3=D0=BE =D0=BB=D0=B8=D1=81=
+=D1=82=D0=B0, =D0=B1=D0=BE =D0=B7=D0=B0=D1=80=D0=B5=D1=94=D1=81=D1=82=D1=80=
+=D1=83=D0=B2=D0=B0=D0=BB=D0=B8=D1=81=D1=8F =D0=B2 =D1=81=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D1=96 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare =D1=96 =D0=B2=D0=B8=D0=BA=D0=BB=D0=B0=D0=
+=BB=D0=B8 =D1=81=D0=B2=D0=BE=D1=97 =D1=80=D0=B5=D1=87=D1=96, =D1=8F=D0=BA=
+=D0=B8=D0=BC=D0=B8 =D1=85=D0=BE=D1=87=D0=B5=D1=82=D0=B5 =D0=BF=D0=BE=D0=B4=
+=D1=96=D0=BB=D0=B8=D1=82=D0=B8=D1=81=D1=8F =D0=B7 =D1=96=D0=BD=D1=88=D0=B8=
+=D0=BC=D0=B8</p>=0D
+            </td>=0D
+          </tr>=0D
+=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;"> =C2=A9 2019 =D0=A1=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D0=B0 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare.</p>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+  </table>=0D
+</body>=0D
+</html>=0D
+=0D
+  </body>=0D
+</html>=0D
+
+Completed 200 OK in 949ms (Views: 0.5ms | ActiveRecord: 2.7ms | Allocations: 10730)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8256613784779976385)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotifications (20210422190005)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "body" text, "kind" character varying, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210422190005"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8256613784779976385)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8256613784779976385)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AssociateNotification (20210422190145)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "notifications" ADD "user_id" bigint[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE INDEX "index_notifications_on_user_id" ON "notifications" ("user_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210422190145"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8256613784779976385)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :comments
+  has_many :notifications
 
   def self.from_omniauth(access_token)
     data = access_token.info
