@@ -3,6 +3,9 @@ class Api::CommentsController < ActionController::API
     json = params.require(:comment).permit(:body, :rating, :product_id).to_h
     json.merge!(user_id: current_user.id)
     comment = Comment.create(json)
+    product = Product.find(params[:product_id])
+
+    Notification.create(body: "#{current_user.email} прокоментував  Вашу річ #{product.name}", user: product.user.email, kind: 'comment', status: 'new' )
   end
 
   def update
