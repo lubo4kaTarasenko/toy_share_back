@@ -1,5 +1,10 @@
 class Api::CommentsController < ActionController::API
 
+  def index
+    notifications = current_user.notificatios
+    render json: { notifications: notifications}
+  end
+
   def update
     json = params.require(:notification).permit(:id)
     notification = Notification.find(json[:id])
