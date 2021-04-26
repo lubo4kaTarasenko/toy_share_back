@@ -12730,3 +12730,1689 @@ Processing by Api::NotificationsController#index as */*
 Completed 200 OK in 19ms (Views: 6.0ms | ActiveRecord: 5.3ms | Allocations: 2214)
 
 
+Started GET "/profile" for ::1 at 2021-04-26 11:26:51 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 369)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:26:51 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:26:51 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 2167)
+
+
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (2.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 11.0ms | Allocations: 7036)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:26:53 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:26:53 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mNotification Load (3.0ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 6.9ms | ActiveRecord: 5.9ms | Allocations: 3977)
+
+
+  [1m[36mNotification Update All (10.8ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 13.1ms | Allocations: 4309)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E,%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=unpublished" for ::1 at 2021-04-26 11:26:56 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую,обміняю", "status"=>"unpublished"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (4.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" IN ($2, $3) AND "products"."user_id" = $4[0m  [["status", "unpublished"], [nil, "подарую"], [nil, "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 7.2ms | Allocations: 1904)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:26:57 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:26:57 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mNotification Load (3.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 6.7ms | ActiveRecord: 5.5ms | Allocations: 3969)
+
+
+  [1m[36mNotification Update All (7.5ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 11.5ms | Allocations: 3891)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-04-26 11:27:08 +0300
+Processing by Devise::SessionsController#destroy as */*
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Can't verify CSRF token authenticity.
+Completed 200 OK in 14ms (ActiveRecord: 2.4ms | Allocations: 2299)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-26 11:27:08 +0300
+Started GET "/categories" for ::1 at 2021-04-26 11:27:08 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (4.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 5], [nil, 3], [nil, 4]]
+  [1m[36mSubcategory Load (3.3ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 5.6ms | Allocations: 5933)
+
+
+  [1m[36mSubcategory Load (2.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [[nil, 1], [nil, 11], [nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 37]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (2.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 108], [nil, 107], [nil, 106], [nil, 105], [nil, 104], [nil, 103], [nil, 102], [nil, 101], [nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [[nil, 14], [nil, 12], [nil, 13], [nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 66ms (Views: 5.3ms | ActiveRecord: 15.8ms | Allocations: 17381)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-26 11:27:11 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 186)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1104)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2021-04-26 11:27:12 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1025)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2021-04-26 11:27:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1025)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2021-04-26 11:27:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1025)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 1039ms
+Built at: 04/26/2021 11:27:13 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2637.9ms | Allocations: 32446)
+Completed 200 OK in 2642ms (Views: 2640.2ms | ActiveRecord: 0.0ms | Allocations: 33163)
+
+
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 892ms
+Built at: 04/26/2021 11:27:15 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2700.6ms | Allocations: 26125)
+Completed 200 OK in 2703ms (Views: 2701.7ms | ActiveRecord: 0.0ms | Allocations: 26711)
+
+
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 820ms
+Built at: 04/26/2021 11:27:15 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2682.3ms | Allocations: 20038)
+Completed 200 OK in 2684ms (Views: 2683.0ms | ActiveRecord: 0.0ms | Allocations: 20625)
+
+
+[Webpacker] Compiled all packs in /home/luba/projects/toy_share_back/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 802ms
+Built at: 04/26/2021 11:27:16 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2629.0ms | Allocations: 13713)
+Completed 200 OK in 2632ms (Views: 2630.0ms | ActiveRecord: 0.0ms | Allocations: 14301)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-04-26 11:27:44 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"lu@gmail.cpm", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "lu@gmail.cpm"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2021-04-26 08:27:45.108057"], ["updated_at", "2021-04-26 08:27:45.108339"], ["id", 14]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 420ms (ActiveRecord: 7.2ms | Allocations: 10756)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-26 11:27:45 +0300
+Started GET "/categories" for ::1 at 2021-04-26 11:27:45 +0300
+Processing by Api::CategoriesController#index as */*
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 4.0ms | Allocations: 4831)
+
+
+  [1m[36mCategory Load (7.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 5], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (2.1ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [[nil, 1], [nil, 11], [nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 37]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (2.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 108], [nil, 107], [nil, 106], [nil, 105], [nil, 104], [nil, 103], [nil, 102], [nil, 101], [nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [[nil, 14], [nil, 12], [nil, 13], [nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 50ms (Views: 3.3ms | ActiveRecord: 19.2ms | Allocations: 14845)
+
+
+Started GET "/product?name=rttrd" for ::1 at 2021-04-26 11:27:53 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"rttrd"}
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "rttrd"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 107]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (2.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 107]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:24:in `show'
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 12.8ms | Allocations: 7098)
+
+
+Started POST "/comments" for ::1 at 2021-04-26 11:28:10 +0300
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"product_id"=>107, "body"=>"very bad thing", "comment"=>{"body"=>"very bad thing", "product_id"=>107}}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mComment Create (4.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at", "product_id", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "very bad thing"], ["created_at", "2021-04-26 08:28:10.594718"], ["updated_at", "2021-04-26 08:28:10.594718"], ["product_id", 107], ["user_id", 14]]
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/comments_controller.rb:5:in `create'
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:6:in `create'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/comments_controller.rb:8:in `create'
+  [1m[36mNotification Create (3.5ms)[0m  [1m[32mINSERT INTO "notifications" ("body", "kind", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "lu@gmail.cpm прокоментував  Вашу річ rttrd"], ["kind", "comment"], ["status", "new"], ["created_at", "2021-04-26 08:28:10.624301"], ["updated_at", "2021-04-26 08:28:10.624301"], ["user_id", 12]]
+  ↳ app/controllers/Api/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/comments_controller.rb:8:in `create'
+No template found for Api::CommentsController#create, rendering head :no_content
+Completed 204 No Content in 115ms (ActiveRecord: 47.8ms | Allocations: 14000)
+
+
+Started GET "/product?name=rttrd" for ::1 at 2021-04-26 11:28:10 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"rttrd"}
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "rttrd"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 107]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `block in show'
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 107]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:24:in `show'
+Completed 200 OK in 30ms (Views: 0.5ms | ActiveRecord: 10.8ms | Allocations: 5410)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:28:15 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:28:15 +0300
+Processing by Api::UsersController#show as */*
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 14.1ms | Allocations: 2185)
+
+
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 14]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 31ms (Views: 0.3ms | ActiveRecord: 16.6ms | Allocations: 3189)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-04-26 11:28:16 +0300
+Processing by Devise::SessionsController#destroy as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:3:in `block in <class:ApplicationController>'
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", nil], ["updated_at", "2021-04-26 08:28:16.658503"], ["id", 14]]
+  ↳ app/controllers/application_controller.rb:3:in `block in <class:ApplicationController>'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:3:in `block in <class:ApplicationController>'
+Completed 200 OK in 39ms (ActiveRecord: 18.8ms | Allocations: 4261)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-26 11:28:16 +0300
+Started GET "/categories" for ::1 at 2021-04-26 11:28:16 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (2.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 5], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (5.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  [1m[36mSubcategory Load (3.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [[nil, 1], [nil, 11], [nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 37]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  ↳ app/interactors/get_products.rb:6:in `map'
+Completed 200 OK in 31ms (Views: 1.9ms | ActiveRecord: 7.6ms | Allocations: 6296)
+
+
+  [1m[36mImage Load (3.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 108], [nil, 107], [nil, 106], [nil, 105], [nil, 104], [nil, 103], [nil, 102], [nil, 101], [nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [[nil, 14], [nil, 12], [nil, 13], [nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+Completed 200 OK in 64ms (Views: 6.0ms | ActiveRecord: 16.0ms | Allocations: 15468)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-26 11:28:18 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1025)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 5768)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 6356)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-26 11:28:21 +0300
+Started GET "/users/auth/google_oauth2" for ::1 at 2021-04-26 11:28:21 +0300
+Started GET "/users/auth/google_oauth2/callback?state=bbae8bb46174a71a080e4f7de8de05a9c413c0100f97b48f&code=4%2F0AY0e-g4h3MPpnpavEaWgCNvfTbk2dw3pCZNDs7eeZiRIWR0ZDg_4AuHpzJ3KZegxePw3xA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-04-26 11:28:24 +0300
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"bbae8bb46174a71a080e4f7de8de05a9c413c0100f97b48f", "code"=>"4/0AY0e-g4h3MPpnpavEaWgCNvfTbk2dw3pCZNDs7eeZiRIWR0ZDg_4AuHpzJ3KZegxePw3xA", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "lubo4ka.boiko@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14:in `from_omniauth'
+Redirected to http://localhost:3001/
+Completed 302 Found in 12ms (ActiveRecord: 2.5ms | Allocations: 1195)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-26 11:28:25 +0300
+Started GET "/categories" for ::1 at 2021-04-26 11:28:25 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 5], [nil, 3], [nil, 4]]
+  [1m[36mSubcategory Load (1.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 3.0ms | Allocations: 5317)
+
+
+  [1m[36mSubcategory Load (3.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [[nil, 1], [nil, 11], [nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 37]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 108], [nil, 107], [nil, 106], [nil, 105], [nil, 104], [nil, 103], [nil, 102], [nil, 101], [nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [[nil, 14], [nil, 12], [nil, 13], [nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 38ms (Views: 3.6ms | ActiveRecord: 12.3ms | Allocations: 15454)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:28:31 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:28:31 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 3.1ms | Allocations: 2173)
+
+
+  [1m[36mProduct Load (4.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (3.0ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (3.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 52ms (Views: 1.6ms | ActiveRecord: 15.2ms | Allocations: 9530)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:28:34 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:28:34 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mNotification Load (2.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 8.1ms | ActiveRecord: 6.0ms | Allocations: 3608)
+
+
+  [1m[36mNotification Update All (12.1ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 31ms (Views: 0.6ms | ActiveRecord: 15.2ms | Allocations: 4394)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:29:58 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 369)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:29:59 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:29:59 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2206)
+
+
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.9ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (2.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 33ms (Views: 1.1ms | ActiveRecord: 9.8ms | Allocations: 6604)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:30:00 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:30:00 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mNotification Load (4.0ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 35ms (Views: 9.7ms | ActiveRecord: 8.1ms | Allocations: 4053)
+
+
+  [1m[36mNotification Update All (8.1ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 35ms (Views: 0.7ms | ActiveRecord: 12.5ms | Allocations: 3970)
+
+
+Started GET "/products?q=&p=1&c=&sc=" for ::1 at 2021-04-26 11:32:12 +0300
+Started GET "/categories" for ::1 at 2021-04-26 11:32:12 +0300
+Processing by Api::ProductsController#index as */*
+  Parameters: {"q"=>"", "p"=>"1", "c"=>"", "sc"=>""}
+Processing by Api::CategoriesController#index as */*
+  [1m[36mProduct Load (4.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 ORDER BY "products"."updated_at" DESC LIMIT $2 OFFSET $3[0m  [["status", "published"], ["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mCategory Load (3.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mCategory Load (4.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 5], [nil, 3], [nil, 4]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mSubcategory Load (3.9ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [[nil, 1], [nil, 2], [nil, 3], [nil, 4], [nil, 5]]
+  ↳ app/controllers/Api/categories_controller.rb:3:in `map'
+  [1m[36mSubcategory Load (3.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [[nil, 1], [nil, 11], [nil, 15], [nil, 35], [nil, 10], [nil, 24], [nil, 16], [nil, 21], [nil, 31], [nil, 23], [nil, 37]]
+Completed 200 OK in 31ms (Views: 1.1ms | ActiveRecord: 7.0ms | Allocations: 5554)
+
+
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mImage Load (2.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [[nil, 108], [nil, 107], [nil, 106], [nil, 105], [nil, 104], [nil, 103], [nil, 102], [nil, 101], [nil, 100], [nil, 99], [nil, 98], [nil, 97], [nil, 96], [nil, 95], [nil, 94], [nil, 93], [nil, 92], [nil, 91], [nil, 90], [nil, 89]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [[nil, 14], [nil, 12], [nil, 13], [nil, 3], [nil, 8], [nil, 7], [nil, 4], [nil, 10], [nil, 5], [nil, 2]]
+  ↳ app/interactors/get_products.rb:6:in `map'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."status" = $1[0m  [["status", "published"]]
+  ↳ app/interactors/get_products.rb:15:in `call'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:11:in `index'
+Completed 200 OK in 75ms (Views: 5.8ms | ActiveRecord: 20.1ms | Allocations: 16336)
+
+
+Started GET "/product?name=intelligent-cotton-wallet" for ::1 at 2021-04-26 11:32:15 +0300
+Processing by Api::ProductsController#show as */*
+  Parameters: {"name"=>"intelligent-cotton-wallet"}
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."url_name" = $1 LIMIT $2[0m  [["url_name", "intelligent-cotton-wallet"], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:16:in `show'
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:17:in `map'
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:21:in `show'
+  [1m[36mSubcategory Load (1.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:22:in `show'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "images"."url" FROM "images" WHERE "images"."product_id" = $1[0m  [["product_id", 100]]
+  ↳ app/controllers/Api/products_controller.rb:23:in `show'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:24:in `show'
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 7.7ms | Allocations: 4627)
+
+
+Started GET "/profile/products?kind=%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=published" for ::1 at 2021-04-26 11:32:17 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"обміняю", "status"=>"published"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (2.7ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (4.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 106], [nil, 107]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 41ms (Views: 1.1ms | ActiveRecord: 14.1ms | Allocations: 4877)
+
+
+Started GET "/product/thing_to_change?id=100&change_id=106" for ::1 at 2021-04-26 11:32:19 +0300
+Processing by Api::ProductsController#thing_to_change as */*
+  Parameters: {"id"=>"100", "change_id"=>"106"}
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:45:in `thing_to_change'
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:46:in `thing_to_change'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:47:in `thing_to_change'
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:6:in `proposal_email'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/proposal_email.erb within layouts/mailer
+  Rendered user_mailer/proposal_email.erb within layouts/mailer (Duration: 0.4ms | Allocations: 36)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.1ms | Allocations: 108)
+UserMailer#proposal_email: processed outbound mail in 14.3ms
+Delivered mail 60867a9350444_4852913c66651@luba-Latitude-5411.mail (1675.1ms)
+Date: Mon, 26 Apr 2021 11:32:19 +0300
+From: lubo4ka.boiko@gmail.com
+To: josue@stehr.com
+Message-ID: <60867a9350444_4852913c66651@luba-Latitude-5411.mail>
+Subject: =?UTF-8?Q?=D0=9F=D1=80=D0=B8=D0=B2=D1=96=D1=82,?=
+ =?UTF-8?Q?_=D1=85=D1=82=D0=BE=D1=81=D1=8C_=D1=85=D0=BE=D1=87=D0=B5?=
+ =?UTF-8?Q?_=D0=BE=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8?=
+ =?UTF-8?Q?_=D0=92=D0=B0=D1=88=D1=83_=D1=80=D1=96=D1=87?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <head>=0D
+=0D
+  <meta charset=3D"utf-8">=0D
+  <meta http-equiv=3D"x-ua-compatible" content=3D"ie=3Dedge">=0D
+  <title>Password Reset</title>=0D
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">=0D
+  <style type=3D"text/css">=0D
+  /**=0D
+   * Google webfonts. Recommended to include the .woff version for cross-=
+client compatibility.=0D
+   */=0D
+  @media screen {=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 400;=0D
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular=
+'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2=
+zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');=0D
+    }=0D
+=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 700;=0D
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), ur=
+l(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc=
+6VGVFSmCnC_l7QZG60.woff) format('woff');=0D
+    }=0D
+  }=0D
+=0D
+  /**=0D
+   * Avoid browser level font resizing.=0D
+   * 1. Windows Mobile=0D
+   * 2. iOS / OSX=0D
+   */=0D
+  body,=0D
+  table,=0D
+  td,=0D
+  a {=0D
+    -ms-text-size-adjust: 100%; /* 1 */=0D
+    -webkit-text-size-adjust: 100%; /* 2 */=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove extra space added to tables and cells in Outlook.=0D
+   */=0D
+  table,=0D
+  td {=0D
+    mso-table-rspace: 0pt;=0D
+    mso-table-lspace: 0pt;=0D
+  }=0D
+=0D
+  /**=0D
+   * Better fluid images in Internet Explorer.=0D
+   */=0D
+  img {=0D
+    -ms-interpolation-mode: bicubic;=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove blue links for iOS devices.=0D
+   */=0D
+  a[x-apple-data-detectors] {=0D
+    font-family: inherit !important;=0D
+    font-size: inherit !important;=0D
+    font-weight: inherit !important;=0D
+    line-height: inherit !important;=0D
+    color: inherit !important;=0D
+    text-decoration: none !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Fix centering issues in Android 4.4.=0D
+   */=0D
+  div[style*=3D"margin: 16px 0;"] {=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  body {=0D
+    width: 100% !important;=0D
+    height: 100% !important;=0D
+    padding: 0 !important;=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Collapse table borders to avoid space between cells.=0D
+   */=0D
+  table {=0D
+    border-collapse: collapse !important;=0D
+  }=0D
+=0D
+  a {=0D
+    color: #1a82e2;=0D
+  }=0D
+=0D
+  img {=0D
+    height: auto;=0D
+    line-height: 100%;=0D
+    text-decoration: none;=0D
+    border: 0;=0D
+    outline: none;=0D
+  }=0D
+  </style>=0D
+=0D
+</head>=0D
+<body style=3D"background-color: #e9ecef;">=0D
+  <div class=3D"preheader" style=3D"display: none; max-width: 0; max-heig=
+ht: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; o=
+pacity: 0;">=0D
+    A preheader is the short summary text that follows the subject line w=
+hen an email is viewed in the inbox.=0D
+  </div>=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=
+=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" valign=3D"top" style=3D"padding: 36px 24=
+px;">=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 36px=
+ 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; bo=
+rder-top: 3px solid #d4dadf;">=0D
+              <h1 style=3D"margin: 0; font-size: 32px; font-weight: 700; =
+letter-spacing: -1px; line-height: 48px;">=D0=A5=D0=BE=D1=87=D1=83 =D0=BE=
+=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8 =D0=92=D0=B0=D1=88=D1=83 =D1=80=
+=D1=96=D1=87</h1>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px;">=0D
+              <p style=3D"margin: 0;">=D0=9D=D0=B0=D1=82=D0=B8=D1=81=D0=BD=
+=D1=96=D1=82=D1=8C =D0=BD=D0=B0 =D0=BA=D0=BD=D0=BE=D0=BF=D0=BA=D1=83 =D0=BD=
+=D0=B8=D0=B6=D1=87=D0=B5, =D1=89=D0=BE=D0=B1 =D0=BF=D0=B5=D1=80=D0=B5=D0=B9=
+=D1=82=D0=B8 =D0=B2 =D1=81=D0=B8=D1=81=D1=82=D0=B5=D0=BC=D1=83</p>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff">=0D
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%">=0D
+                <tr>=0D
+                  <td align=3D"center" bgcolor=3D"#ffffff" style=3D"paddi=
+ng: 12px;">=0D
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">=0D
+                      <tr>=0D
+                        <td align=3D"center" bgcolor=3D"#1a82e2" style=3D=
+"border-radius: 6px;">=0D
+                          <a href=3D"https://sendgrid.com" target=3D"_bla=
+nk" style=3D"display: inline-block; padding: 16px 36px; font-family: 'Sou=
+rce Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #fff=
+fff; text-decoration: none; border-radius: 6px;">ToyShare</a>=0D
+                        </td>=0D
+                      </tr>=0D
+                    </table>=0D
+                  </td>=0D
+                </tr>=0D
+              </table>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">=0D
+              <p style=3D"margin: 0;">=D0=93=D0=B0=D1=80=D0=BD=D0=BE=D0=B3=
+=D0=BE =D0=BD=D0=B0=D1=81=D1=82=D1=80=D0=BE=D1=8E, <br>ToyShare</p>=0D
+            </td>=0D
+          </tr>    =0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 24px;">=0D=
+
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;">=D0=92=D0=B8 =D0=BE=D1=82=D1=80=D0=B8=
+=D0=BC=D0=B0=D0=BB=D0=B8 =D1=86=D1=8C=D0=BE=D0=B3=D0=BE =D0=BB=D0=B8=D1=81=
+=D1=82=D0=B0, =D0=B1=D0=BE =D0=B7=D0=B0=D1=80=D0=B5=D1=94=D1=81=D1=82=D1=80=
+=D1=83=D0=B2=D0=B0=D0=BB=D0=B8=D1=81=D1=8F =D0=B2 =D1=81=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D1=96 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare =D1=96 =D0=B2=D0=B8=D0=BA=D0=BB=D0=B0=D0=
+=BB=D0=B8 =D1=81=D0=B2=D0=BE=D1=97 =D1=80=D0=B5=D1=87=D1=96, =D1=8F=D0=BA=
+=D0=B8=D0=BC=D0=B8 =D1=85=D0=BE=D1=87=D0=B5=D1=82=D0=B5 =D0=BF=D0=BE=D0=B4=
+=D1=96=D0=BB=D0=B8=D1=82=D0=B8=D1=81=D1=8F =D0=B7 =D1=96=D0=BD=D1=88=D0=B8=
+=D0=BC=D0=B8</p>=0D
+            </td>=0D
+          </tr>=0D
+=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;"> =C2=A9 2019 =D0=A1=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D0=B0 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare.</p>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+  </table>=0D
+</body>=0D
+</html>=0D
+=0D
+  </body>=0D
+</html>=0D
+
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+  [1m[36mNotification Create (9.7ms)[0m  [1m[32mINSERT INTO "notifications" ("body", "kind", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "lubo4ka.boiko@gmail.com хоче обміняти Вашу Intelligent Cotton Wallet на White-dog"], ["kind", "proposal"], ["status", "new"], ["created_at", "2021-04-26 08:32:21.004366"], ["updated_at", "2021-04-26 08:32:21.004366"], ["user_id", 3]]
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+Completed 200 OK in 1764ms (Views: 0.4ms | ActiveRecord: 25.8ms | Allocations: 16705)
+
+
+Started GET "/product/thing_to_change?id=100&change_id=106" for ::1 at 2021-04-26 11:32:39 +0300
+Processing by Api::ProductsController#thing_to_change as */*
+  Parameters: {"id"=>"100", "change_id"=>"106"}
+  [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:45:in `thing_to_change'
+  [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:46:in `thing_to_change'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/products_controller.rb:47:in `thing_to_change'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:6:in `proposal_email'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/proposal_email.erb within layouts/mailer
+  Rendered user_mailer/proposal_email.erb within layouts/mailer (Duration: 0.5ms | Allocations: 36)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 108)
+UserMailer#proposal_email: processed outbound mail in 14.6ms
+Delivered mail 60867aa71036e_485292686675e@luba-Latitude-5411.mail (1184.2ms)
+Date: Mon, 26 Apr 2021 11:32:39 +0300
+From: lubo4ka.boiko@gmail.com
+To: josue@stehr.com
+Message-ID: <60867aa71036e_485292686675e@luba-Latitude-5411.mail>
+Subject: =?UTF-8?Q?=D0=9F=D1=80=D0=B8=D0=B2=D1=96=D1=82,?=
+ =?UTF-8?Q?_=D1=85=D1=82=D0=BE=D1=81=D1=8C_=D1=85=D0=BE=D1=87=D0=B5?=
+ =?UTF-8?Q?_=D0=BE=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8?=
+ =?UTF-8?Q?_=D0=92=D0=B0=D1=88=D1=83_=D1=80=D1=96=D1=87?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <head>=0D
+=0D
+  <meta charset=3D"utf-8">=0D
+  <meta http-equiv=3D"x-ua-compatible" content=3D"ie=3Dedge">=0D
+  <title>Password Reset</title>=0D
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">=0D
+  <style type=3D"text/css">=0D
+  /**=0D
+   * Google webfonts. Recommended to include the .woff version for cross-=
+client compatibility.=0D
+   */=0D
+  @media screen {=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 400;=0D
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular=
+'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2=
+zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');=0D
+    }=0D
+=0D
+    @font-face {=0D
+      font-family: 'Source Sans Pro';=0D
+      font-style: normal;=0D
+      font-weight: 700;=0D
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), ur=
+l(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc=
+6VGVFSmCnC_l7QZG60.woff) format('woff');=0D
+    }=0D
+  }=0D
+=0D
+  /**=0D
+   * Avoid browser level font resizing.=0D
+   * 1. Windows Mobile=0D
+   * 2. iOS / OSX=0D
+   */=0D
+  body,=0D
+  table,=0D
+  td,=0D
+  a {=0D
+    -ms-text-size-adjust: 100%; /* 1 */=0D
+    -webkit-text-size-adjust: 100%; /* 2 */=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove extra space added to tables and cells in Outlook.=0D
+   */=0D
+  table,=0D
+  td {=0D
+    mso-table-rspace: 0pt;=0D
+    mso-table-lspace: 0pt;=0D
+  }=0D
+=0D
+  /**=0D
+   * Better fluid images in Internet Explorer.=0D
+   */=0D
+  img {=0D
+    -ms-interpolation-mode: bicubic;=0D
+  }=0D
+=0D
+  /**=0D
+   * Remove blue links for iOS devices.=0D
+   */=0D
+  a[x-apple-data-detectors] {=0D
+    font-family: inherit !important;=0D
+    font-size: inherit !important;=0D
+    font-weight: inherit !important;=0D
+    line-height: inherit !important;=0D
+    color: inherit !important;=0D
+    text-decoration: none !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Fix centering issues in Android 4.4.=0D
+   */=0D
+  div[style*=3D"margin: 16px 0;"] {=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  body {=0D
+    width: 100% !important;=0D
+    height: 100% !important;=0D
+    padding: 0 !important;=0D
+    margin: 0 !important;=0D
+  }=0D
+=0D
+  /**=0D
+   * Collapse table borders to avoid space between cells.=0D
+   */=0D
+  table {=0D
+    border-collapse: collapse !important;=0D
+  }=0D
+=0D
+  a {=0D
+    color: #1a82e2;=0D
+  }=0D
+=0D
+  img {=0D
+    height: auto;=0D
+    line-height: 100%;=0D
+    text-decoration: none;=0D
+    border: 0;=0D
+    outline: none;=0D
+  }=0D
+  </style>=0D
+=0D
+</head>=0D
+<body style=3D"background-color: #e9ecef;">=0D
+  <div class=3D"preheader" style=3D"display: none; max-width: 0; max-heig=
+ht: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; o=
+pacity: 0;">=0D
+    A preheader is the short summary text that follows the subject line w=
+hen an email is viewed in the inbox.=0D
+  </div>=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=
+=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" valign=3D"top" style=3D"padding: 36px 24=
+px;">=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 36px=
+ 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; bo=
+rder-top: 3px solid #d4dadf;">=0D
+              <h1 style=3D"margin: 0; font-size: 32px; font-weight: 700; =
+letter-spacing: -1px; line-height: 48px;">=D0=A5=D0=BE=D1=87=D1=83 =D0=BE=
+=D1=82=D1=80=D0=B8=D0=BC=D0=B0=D1=82=D0=B8 =D0=92=D0=B0=D1=88=D1=83 =D1=80=
+=D1=96=D1=87</h1>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef">=0D
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px;">=0D
+              <p style=3D"margin: 0;">=D0=9D=D0=B0=D1=82=D0=B8=D1=81=D0=BD=
+=D1=96=D1=82=D1=8C =D0=BD=D0=B0 =D0=BA=D0=BD=D0=BE=D0=BF=D0=BA=D1=83 =D0=BD=
+=D0=B8=D0=B6=D1=87=D0=B5, =D1=89=D0=BE=D0=B1 =D0=BF=D0=B5=D1=80=D0=B5=D0=B9=
+=D1=82=D0=B8 =D0=B2 =D1=81=D0=B8=D1=81=D1=82=D0=B5=D0=BC=D1=83</p>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff">=0D
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%">=0D
+                <tr>=0D
+                  <td align=3D"center" bgcolor=3D"#ffffff" style=3D"paddi=
+ng: 12px;">=0D
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">=0D
+                      <tr>=0D
+                        <td align=3D"center" bgcolor=3D"#1a82e2" style=3D=
+"border-radius: 6px;">=0D
+                          <a href=3D"https://sendgrid.com" target=3D"_bla=
+nk" style=3D"display: inline-block; padding: 16px 36px; font-family: 'Sou=
+rce Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #fff=
+fff; text-decoration: none; border-radius: 6px;">ToyShare</a>=0D
+                        </td>=0D
+                      </tr>=0D
+                    </table>=0D
+                  </td>=0D
+                </tr>=0D
+              </table>=0D
+            </td>=0D
+          </tr>=0D
+          <tr>=0D
+            <td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding: 24px=
+; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">=0D
+              <p style=3D"margin: 0;">=D0=93=D0=B0=D1=80=D0=BD=D0=BE=D0=B3=
+=D0=BE =D0=BD=D0=B0=D1=81=D1=82=D1=80=D0=BE=D1=8E, <br>ToyShare</p>=0D
+            </td>=0D
+          </tr>    =0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 24px;">=0D=
+
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"max-width: 600px;">=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;">=D0=92=D0=B8 =D0=BE=D1=82=D1=80=D0=B8=
+=D0=BC=D0=B0=D0=BB=D0=B8 =D1=86=D1=8C=D0=BE=D0=B3=D0=BE =D0=BB=D0=B8=D1=81=
+=D1=82=D0=B0, =D0=B1=D0=BE =D0=B7=D0=B0=D1=80=D0=B5=D1=94=D1=81=D1=82=D1=80=
+=D1=83=D0=B2=D0=B0=D0=BB=D0=B8=D1=81=D1=8F =D0=B2 =D1=81=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D1=96 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare =D1=96 =D0=B2=D0=B8=D0=BA=D0=BB=D0=B0=D0=
+=BB=D0=B8 =D1=81=D0=B2=D0=BE=D1=97 =D1=80=D0=B5=D1=87=D1=96, =D1=8F=D0=BA=
+=D0=B8=D0=BC=D0=B8 =D1=85=D0=BE=D1=87=D0=B5=D1=82=D0=B5 =D0=BF=D0=BE=D0=B4=
+=D1=96=D0=BB=D0=B8=D1=82=D0=B8=D1=81=D1=8F =D0=B7 =D1=96=D0=BD=D1=88=D0=B8=
+=D0=BC=D0=B8</p>=0D
+            </td>=0D
+          </tr>=0D
+=0D
+          <tr>=0D
+            <td align=3D"center" bgcolor=3D"#e9ecef" style=3D"padding: 12=
+px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; line-height: 20px; color: #666;">=0D
+              <p style=3D"margin: 0;"> =C2=A9 2019 =D0=A1=D0=B8=D1=81=D1=82=
+=D0=B5=D0=BC=D0=B0 =D0=BE=D0=B1=D0=BC=D1=96=D0=BD=D1=83 =D1=96=D0=B3=D1=80=
+=D0=B0=D1=88=D0=BE=D0=BA ToyShare.</p>=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+      </td>=0D
+    </tr>=0D
+  </table>=0D
+</body>=0D
+</html>=0D
+=0D
+  </body>=0D
+</html>=0D
+
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+  [1m[36mNotification Create (1.9ms)[0m  [1m[32mINSERT INTO "notifications" ("body", "kind", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "lubo4ka.boiko@gmail.com хоче обміняти Вашу Intelligent Cotton Wallet на White-dog"], ["kind", "proposal"], ["status", "new"], ["created_at", "2021-04-26 08:32:40.251827"], ["updated_at", "2021-04-26 08:32:40.251827"], ["user_id", 3]]
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/Api/products_controller.rb:49:in `thing_to_change'
+Completed 200 OK in 1236ms (Views: 0.4ms | ActiveRecord: 18.8ms | Allocations: 12895)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:32:42 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:32:42 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 3.8ms | Allocations: 1998)
+
+
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.8ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (2.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 44ms (Views: 0.8ms | ActiveRecord: 14.8ms | Allocations: 8433)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:32:44 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:32:44 +0300
+Processing by Api::NotificationsController#update as */*
+Processing by Api::NotificationsController#index as */*
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mNotification Load (1.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 5.3ms | ActiveRecord: 4.6ms | Allocations: 3381)
+
+
+  [1m[36mNotification Update All (12.2ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 14.9ms | Allocations: 4410)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:34:18 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 492)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:34:18 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:34:18 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 12.4ms | Allocations: 7699)
+
+
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 126ms (Views: 0.8ms | ActiveRecord: 43.6ms | Allocations: 29493)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:34:20 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:34:20 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mNotification Load (1.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 46ms (Views: 19.6ms | ActiveRecord: 13.7ms | Allocations: 8546)
+
+
+  [1m[36mNotification Update All (21.9ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 52ms (Views: 0.4ms | ActiveRecord: 30.6ms | Allocations: 9122)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:37:41 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.4ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 370)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:37:41 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:37:41 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 2513)
+
+
+  [1m[36mCategory Load (3.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (3.2ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 37ms (Views: 0.8ms | ActiveRecord: 13.2ms | Allocations: 7049)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:37:43 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:37:43 +0300
+Processing by Api::NotificationsController#update as */*
+Processing by Api::NotificationsController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mNotification Load (2.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 5.9ms | ActiveRecord: 5.1ms | Allocations: 3235)
+
+
+  [1m[36mNotification Update All (14.0ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:9:in `update'
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 16.2ms | Allocations: 4896)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:41:40 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 490)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:41:41 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:41:41 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 10.3ms | Allocations: 7404)
+
+
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (2.6ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 132ms (Views: 1.4ms | ActiveRecord: 45.2ms | Allocations: 29184)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:41:42 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:41:42 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (1.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 12.9ms | Allocations: 11320)
+
+
+  [1m[36mNotification Update All (23.5ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  
+NameError (undefined local variable or method `created_at' for #<Api::NotificationsController:0x00000000022998>):
+  
+app/controllers/Api/notifications_controller.rb:5:in `block in index'
+app/controllers/Api/notifications_controller.rb:5:in `map'
+app/controllers/Api/notifications_controller.rb:5:in `index'
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 185ms (Views: 0.2ms | ActiveRecord: 32.0ms | Allocations: 69375)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E,%D0%BE%D0%B1%D0%BC%D1%96%D0%BD%D1%8F%D1%8E&status=unpublished" for ::1 at 2021-04-26 11:41:55 +0300
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую,обміняю", "status"=>"unpublished"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" IN ($2, $3) AND "products"."user_id" = $4[0m  [["status", "unpublished"], [nil, "подарую"], [nil, "обміняю"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 5.2ms | Allocations: 1905)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:41:56 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:41:56 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (3.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 6.4ms | Allocations: 6154)
+
+
+  [1m[36mNotification Update All (28.1ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  
+NameError (undefined local variable or method `created_at' for #<Api::NotificationsController:0x00000000022e20>):
+  
+app/controllers/Api/notifications_controller.rb:5:in `block in index'
+app/controllers/Api/notifications_controller.rb:5:in `map'
+app/controllers/Api/notifications_controller.rb:5:in `index'
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 220ms (Views: 0.2ms | ActiveRecord: 33.1ms | Allocations: 64884)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:43:53 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 491)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:43:53 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:43:53 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 11.0ms | Allocations: 9351)
+
+
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.3ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 134ms (Views: 1.1ms | ActiveRecord: 41.9ms | Allocations: 29234)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:43:55 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:43:55 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (2.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+  [1m[36mNotification Update All (3.8ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+Completed 200 OK in 52ms (Views: 1.9ms | ActiveRecord: 17.2ms | Allocations: 8496)
+
+
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 56ms (Views: 0.4ms | ActiveRecord: 10.9ms | Allocations: 8896)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:46:24 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 490)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:46:25 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:46:25 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 12.5ms | Allocations: 6837)
+
+
+  [1m[36mUser Load (20.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.9ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 166ms (Views: 1.0ms | ActiveRecord: 72.4ms | Allocations: 29229)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:46:26 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:46:26 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (1.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+Completed 200 OK in 38ms (Views: 0.9ms | ActiveRecord: 12.5ms | Allocations: 8371)
+
+
+  [1m[36mNotification Update All (14.5ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 21.0ms | Allocations: 8943)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:47:31 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 492)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:47:32 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:47:32 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 0.9ms | ActiveRecord: 9.0ms | Allocations: 7011)
+
+
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 127ms (Views: 1.1ms | ActiveRecord: 42.5ms | Allocations: 29222)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:47:33 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:47:33 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (2.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+Completed 200 OK in 43ms (Views: 1.0ms | ActiveRecord: 13.1ms | Allocations: 8369)
+
+
+  [1m[36mNotification Update All (18.5ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 26.2ms | Allocations: 8937)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:49:47 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 491)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:49:48 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:49:48 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 14.2ms | Allocations: 9305)
+
+
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.5ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 117ms (Views: 0.7ms | ActiveRecord: 41.5ms | Allocations: 29212)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:49:50 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:49:50 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (1.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:5:in `map'
+Completed 200 OK in 36ms (Views: 0.9ms | ActiveRecord: 11.1ms | Allocations: 8372)
+
+
+  [1m[36mNotification Update All (12.6ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 18.7ms | Allocations: 8936)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:51:08 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 492)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:51:09 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:51:09 +0300
+Processing by Api::ProfileController#products as */*
+Processing by Api::UsersController#show as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 10.6ms | Allocations: 9365)
+
+
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (2.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 140ms (Views: 1.1ms | ActiveRecord: 50.1ms | Allocations: 29234)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:51:09 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:51:09 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mNotification Load (2.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 /* loading for inspect */ ORDER BY "notifications"."created_at" DESC LIMIT $2[0m  [["user_id", 12], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 3.7ms | Allocations: 11029)
+
+
+  [1m[36mCACHE Notification Load (0.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 /* loading for inspect */ ORDER BY "notifications"."created_at" DESC LIMIT $2[0m  [["user_id", 12], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `map!' for #<Notification::ActiveRecord_AssociationRelation:0x00007fa839504ec8>
+Did you mean?  map):
+  
+app/controllers/Api/notifications_controller.rb:5:in `index'
+  [1m[36mNotification Update All (29.5ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 260ms (Views: 0.3ms | ActiveRecord: 46.9ms | Allocations: 65829)
+
+
+Started GET "/profile" for ::1 at 2021-04-26 11:52:03 +0300
+Processing by HomeController#index as HTML
+  Parameters: {"Warriors"=>"profile"}
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 491)
+
+
+Started GET "/profile/products?kind=%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%83%D1%8E&status=published" for ::1 at 2021-04-26 11:52:03 +0300
+Started GET "/api/user" for ::1 at 2021-04-26 11:52:03 +0300
+Processing by Api::UsersController#show as */*
+Processing by Api::ProfileController#products as */*
+  Parameters: {"kind"=>"подарую", "status"=>"published"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:7:in `products'
+  ↳ app/controllers/Api/users_controller.rb:22:in `render_user'
+Completed 200 OK in 44ms (Views: 0.5ms | ActiveRecord: 11.7ms | Allocations: 9318)
+
+
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."status" = $1 AND "products"."kind" = $2 AND "products"."user_id" = $3[0m  [["status", "published"], ["kind", "подарую"], ["user_id", 12]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mSubcategory Load (1.4ms)[0m  [1m[34mSELECT "subcategories".* FROM "subcategories" WHERE "subcategories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."product_id" IN ($1, $2)[0m  [[nil, 104], [nil, 105]]
+  ↳ app/controllers/Api/profile_controller.rb:16:in `map'
+Completed 200 OK in 136ms (Views: 0.7ms | ActiveRecord: 48.0ms | Allocations: 29190)
+
+
+Started GET "/notifications" for ::1 at 2021-04-26 11:52:05 +0300
+Started GET "/notifications/update" for ::1 at 2021-04-26 11:52:05 +0300
+Processing by Api::NotificationsController#index as */*
+Processing by Api::NotificationsController#update as */*
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:4:in `index'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+  [1m[36mNotification Load (2.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 ORDER BY "notifications"."created_at" DESC[0m  [["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:6:in `map'
+  [1m[36mNotification Update All (3.2ms)[0m  [1m[33mUPDATE "notifications" SET "status" = $1 WHERE "notifications"."user_id" = $2[0m  [["status", "viewed"], ["user_id", 12]]
+  ↳ app/controllers/Api/notifications_controller.rb:10:in `update'
+Completed 200 OK in 53ms (Views: 1.2ms | ActiveRecord: 19.2ms | Allocations: 9267)
+
+
+Completed 200 OK in 50ms (Views: 0.5ms | ActiveRecord: 10.7ms | Allocations: 8450)
+
+
