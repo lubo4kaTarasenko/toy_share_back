@@ -37,7 +37,7 @@ class Api::ProductsController < ActionController::API
     product = Product.find(params[:id])
     UserMailer.with(user_email: current_user.email, product: product).proposal_email.deliver_now
 
-    Notification.create(body: "#{current_user.email} хоче отримати  Вашу річ #{product.name}", user: product.user.email, kind: 'proposal', status: 'new' )
+    Notification.create(body: "#{current_user.email} хоче отримати  Вашу річ #{product.name}", user: product.user, kind: 'proposal', status: 'new' )
     render json: {success: true}
   end
 
@@ -46,7 +46,7 @@ class Api::ProductsController < ActionController::API
     product_change = Product.find(params[:change_id])
     UserMailer.with(user_email: current_user.email, product: product, product_change: product_change).proposal_email.deliver_now
 
-    Notification.create(body: "#{current_user.email} хоче обміняти Вашу #{product.name} на #{ product_change.name }", user: product.user.email, kind: 'proposal', status: 'new' )
+    Notification.create(body: "#{current_user.email} хоче обміняти Вашу #{product.name} на #{ product_change.name }", user: product.user, kind: 'proposal', status: 'new' )
     render json: {success: true}
   end
 end

@@ -4,5 +4,5 @@ class Notification < ApplicationRecord
   validates :status, inclusion: { in: %w(new viewed)}
   validates :kind, inclusion: { in: %w(comment proposal)}
 
-  scope :new, -> {where(status: 'new')}
+  scope :new_notification, -> {where(status: 'new')}
 end

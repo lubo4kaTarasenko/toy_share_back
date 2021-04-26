@@ -20,10 +20,7 @@ Rails.application.routes.draw do
   get '/product/thing_to_change', to: 'api/products#thing_to_change'
 
   get 'notifications', to: 'api/notifications#index'
-  put 'notification', to: 'api/notifications#update'
-  delete '/notification', to: 'api/notifications#destroy'
-
-
+  get 'notifications/update', to: 'api/notifications#update'
 
   root = 'home#index'
 
