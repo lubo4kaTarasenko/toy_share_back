@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'notifications', to: 'api/notifications#index'
   get 'notifications/update', to: 'api/notifications#update'
 
+  post '/telegram_webhook', to: 'api/telegram#telegram_webhook'
+
   root = 'home#index'
 
   root to: root

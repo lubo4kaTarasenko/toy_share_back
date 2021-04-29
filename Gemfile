@@ -36,6 +36,8 @@ gem "omniauth", "~> 1.9.1"
 gem 'mimemagic', '0.3.5', git: 'https://github.com/xandrck/mimemagic.git'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'telegram-bot-ruby'
+#gem 'tele_notify', '~> 0.1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
