@@ -1,3 +1,5 @@
+require 'telegram/bot'
+
 class Api::ProductsController < ActionController::API
   def create
     CreateProduct.call(params: params, user: current_user)
@@ -37,7 +39,10 @@ class Api::ProductsController < ActionController::API
     product = Product.find(params[:id])
     UserMailer.with(user_email: current_user.email, product: product).proposal_email.deliver_now
 
-    Notification.create(body: "#{current_user.email} хоче отримати  Вашу річ #{product.name}", user: product.user, kind: 'proposal', status: 'new' )
+    body = "#{current_user.email} хоче отримати  Вашу річ #{product.name}"
+    Notification.create(body: body, user: product.user, kind: 'proposal', status: 'new' )
+    notify_in_telegram(product.user, body)
+
     render json: {success: true}
   end
 
@@ -46,7 +51,19 @@ class Api::ProductsController < ActionController::API
     product_change = Product.find(params[:change_id])
     UserMailer.with(user_email: current_user.email, product: product, product_change: product_change).proposal_email.deliver_now
 
-    Notification.create(body: "#{current_user.email} хоче обміняти Вашу #{product.name} на #{ product_change.name }", user: product.user, kind: 'proposal', status: 'new' )
+    body = "#{current_user.email} хоче обміняти Вашу #{product.name} на #{ product_change.name }"
+    Notification.create(body: body, user: product.user, kind: 'proposal', status: 'new' )
+    notify_in_telegram(product.user, body)
+
     render json: {success: true}
+  end
+
+  private
+
+  def notify_in_telegram(user, text)
+    return unless user.telegram_chat_id
+
+    client = Telegram::Bot::Client.new(ENV['TELEGRAM_TOYSHARE_TOKEN'])
+    client.api.send_message(chat_id: user.telegram_chat_id, text: text)
   end
 end
