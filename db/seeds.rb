@@ -9,7 +9,7 @@ SUBCATEGORIES_CHILDRENS = %w[ліжечка манежі столики комо
 KINDS = %w[обміняю подарую].freeze
 
 categories = CATEGORIES.map do |c|
-  Category.create( { name: c } )
+  Category.create({ name: c })
 end
 SUBCATEGORIES_CLOSE.map do |sc|
   Subcategory.create(
@@ -53,7 +53,7 @@ SUBCATEGORIES_CHILDRENS.map do |sc|
 end
 
 users = 10.times.map { User.create(email: Faker::Internet.email, password: '12345678') }
-products = 100.times.map do
+100.times.map do
   category = categories.sample
   user = users.sample
   Product.create!(
@@ -67,5 +67,8 @@ products = 100.times.map do
       status: 'published'
     }
   )
-end 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+end
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password',
+                    password_confirmation: 'password')
+end

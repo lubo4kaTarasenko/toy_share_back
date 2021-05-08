@@ -1,21 +1,21 @@
 require 'telegram/bot'
 
 class Api::ProductsController < ActionController::API
+  
   def create
     CreateProduct.call(params: params, user: current_user)
    
-    render json: {message: 'success'}
+    {message: 'success'}
   end
 
   def index
     result = GetProducts.call(params: params)
-    #return (render json:{message: result.message}, 400) if context.failure?
-    email = current_user.email  if current_user  
-    render json: { products: result.products, pages: result.pages_count, user: email }
+
+    render json: { products: result.products, pages: result.pages_count, user: current_user&.email }
   end
 
   def show
-    product = Product.find_by(url_name: params[:name])
+    product = Product.find_by(url_name: params[:name]).includes(:category, :subcategory, :images, :user, :comments)
     comments_arr = product.comments.map { |c| { id: c.id, body: c.body, email: c.user.email } }
  
     render json: {

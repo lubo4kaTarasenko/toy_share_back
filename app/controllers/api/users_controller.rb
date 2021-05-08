@@ -3,13 +3,14 @@ class Api::UsersController < ActionController::API
   def update
     user_params = JSON.parse(params[:user])
     name = "#{user_params['name']} #{user_params['soname']}"
-    current_user.update(name: name)
+    user_params = { name: name }    
 
     if params['avatar'] && params['avatar'] != 'undefined'
       uploaded_avatar = Cloudinary::Uploader.upload(params['avatar'].path)
-      current_user.update(avatar: uploaded_avatar['url'])
+      user_params[:avatar] = uploaded_avatar['url']
     end 
     
+    current_user.update(user_params)
     render_user
   end
 

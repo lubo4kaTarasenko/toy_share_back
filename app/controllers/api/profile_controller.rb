@@ -1,7 +1,4 @@
 class Api::ProfileController < ActionController::API
-  def index
-   
-  end
 
   def products
     find_products(current_user)   
