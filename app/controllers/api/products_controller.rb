@@ -15,7 +15,7 @@ class Api::ProductsController < ActionController::API
   end
 
   def show
-    product = Product.find_by(url_name: params[:name]).includes(:category, :subcategory, :images, :user, :comments)
+    product = Product.includes(:category, :subcategory, :images, :user, :comments).find_by(url_name: params[:name])
     comments_arr = product.comments.map { |c| { id: c.id, body: c.body, email: c.user.email } }
  
     render json: {
