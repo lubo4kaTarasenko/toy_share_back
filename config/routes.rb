@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get '/products', to: 'api/products#index'
   get '/categories', to: 'api/categories#index'
   get '/profile/products', to: 'api/profile#products'
-  patch 'api/user', to: 'api/users#update'
-  get 'api/user', to: 'api/users#show'
-  delete 'product', to: 'api/products#delete'
-  get 'api/user_profile', to: 'api/users#user_profile'
+  patch '/api/user', to: 'api/users#update'
+  get '/api/user', to: 'api/users#show'
+  delete '/product', to: 'api/products#delete'
+  get '/api/user_profile', to: 'api/users#user_profile'
   get '/profile/user_products', to: 'api/profile#user_products'
   post '/comments', to: 'api/comments#create'
   delete '/comments', to: 'api/comments#destroy'
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   get 'product/wanna_thing', to: 'api/products#wanna_thing'
   get '/product/thing_to_change', to: 'api/products#thing_to_change'
 
-  get 'notifications', to: 'api/notifications#index'
-  get 'notifications/update', to: 'api/notifications#update'
+  get '/notifications', to: 'api/notifications#index'
+  get '/notifications/update', to: 'api/notifications#update'
 
   post '/telegram_webhook', to: 'api/telegram#telegram_webhook'
 
