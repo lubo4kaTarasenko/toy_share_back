@@ -7,7 +7,7 @@ class GetProducts
       product.attributes.merge(
         category: product.category.name,
         subcategory: product.subcategory.name,
-        image: product.images[0]&.url, 
+        image: product.images[0]&.url,
         user: product.user.email
       )
     end

@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   def proposal_email
     @user_email = params[:user_email]
     @product = params[:product]

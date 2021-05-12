@@ -5,7 +5,8 @@ class Api::CommentsController < ActionController::API
     Comment.create(json)
     product = Product.find(params[:product_id])
 
-    Notification.create(body: "#{current_user.email} прокоментував  Вашу річ #{product.name}", user: product.user, kind: 'comment', status: 'new' )
+    Notification.create(body: "#{current_user.email} прокоментував  Вашу річ #{product.name}", user: product.user,
+                        kind: 'comment', status: 'new')
   end
 
   def update

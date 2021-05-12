@@ -1,15 +1,14 @@
 class Api::UsersController < ActionController::API
-
   def update
     user_params = JSON.parse(params[:user])
     name = "#{user_params['name']} #{user_params['soname']}"
-    user_params = { name: name }    
+    user_params = { name: name }
 
     if params['avatar'] && params['avatar'] != 'undefined'
       uploaded_avatar = Cloudinary::Uploader.upload(params['avatar'].path)
       user_params[:avatar] = uploaded_avatar['url']
-    end 
-    
+    end
+
     current_user.update(user_params)
     render_user
   end
@@ -23,7 +22,7 @@ class Api::UsersController < ActionController::API
       name: current_user.name,
       avatar: current_user.avatar
     }
-    render json: {user: user}
+    render json: { user: user }
   end
 
   def user_profile
@@ -33,6 +32,6 @@ class Api::UsersController < ActionController::API
       avatar: user.avatar,
       email: user.email
     }
-    render json: {user: user_params}
+    render json: { user: user_params }
   end
 end

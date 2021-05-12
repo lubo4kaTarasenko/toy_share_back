@@ -10,13 +10,13 @@ class CreateProduct
     subcategory = Subcategory.find_by(category: category, name: product['subcategory'])
     product_new = Product.create!(
       name: product['name'],
-      description: product['description'], 
+      description: product['description'],
       kind: product['kind'],
       user: context.user,
       category: category,
       subcategory: subcategory,
       status: 'unpublished'
     )
-    uploaded_pictures.each { |picture| product_new.images.create(url: picture['url'])} if uploaded_pictures
+    uploaded_pictures.each { |picture| product_new.images.create(url: picture['url']) } if uploaded_pictures
   end
 end

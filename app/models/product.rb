@@ -6,11 +6,11 @@ class Product < ApplicationRecord
   has_many :comments
 
   validates :name, presence: true
-  validates :status, inclusion: { in: %w(unpublished published)}
+  validates :status, inclusion: { in: %w[unpublished published] }
 
   before_save :add_url_name
 
-  scope :published, -> {where(status: 'published')}
+  scope :published, -> { where(status: 'published') }
 
   def self.search(pattern)
     if pattern.blank?
