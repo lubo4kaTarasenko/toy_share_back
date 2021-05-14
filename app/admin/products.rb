@@ -5,7 +5,7 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :description, :kind, :category_id, :subcategory_id, :user_id, :status, :url_name
+  permit_params :name, :description, :kind, :category_id, :subcategory_id, :user_id, :status, :url_name
   #
   # or
   #
