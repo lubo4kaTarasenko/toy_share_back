@@ -22,17 +22,19 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'https://super-amazing-shop.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://toy-share-che.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    domain: 'localhost:3000',
-    address: 'smtp.sendgrid.net',
+    address: 'smtp.gmail.com',
     port: 587,
-    authentication: :plain,
-    user_name: 'apikey',
-    password: ENV['SENDGRID_KEY']
+    domain: 'example.com',
+    user_name: ENV['MAILER_ADDRESS'],
+    password: ENV['MAILER_SECRET'],
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
+
 
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
